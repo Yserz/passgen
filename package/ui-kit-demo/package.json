@@ -24,7 +24,7 @@
     "typescript": "3.7.5",
     "webpack": "4.29.6",
     "webpack-cli": "3.3.0",
-    "webpack-dev-server": "3.2.1"
+    "webpack-dev-server": "3.10.3"
   },
   "main": "dist/index.js",
   "files": [
