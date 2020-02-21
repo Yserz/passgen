@@ -1,0 +1,37 @@
+# http://docs.travis-ci.com/user/workers/container-based-infrastructure/
+sudo: required
+dist: xenial
+
+notifications:
+  email: false
+
+addons:
+  chrome: stable
+
+# http://docs.travis-ci.com/user/languages/javascript-with-nodejs/
+language: node_js
+node_js:
+  - '10'
+
+services:
+  - xvfb
+
+# https://docs.travis-ci.com/user/caching/
+cache:
+  yarn: true
+
+script:
+  yarn test
+
+# after_script:
+#   - 'bash <(curl -s https://codecov.io/bash) -f ./docs/coverage/lcov.info'
+
+# http://docs.travis-ci.com/user/deployment/
+# after_success:
+#   - <deploy>
+
+# after_deploy:
+#   -
+
+# after_failure:
+#   -
