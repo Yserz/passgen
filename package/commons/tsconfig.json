@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "declaration": true,
+    "lib": ["es2015"],
+    "outDir": "dist",
+    "rootDirs": ["src"],
+    "target": "es6"
+  },
+  "exclude": ["dist", "node_modules"],
+  "extends": "../../tsconfig.json"
+}

@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./src", // enables absolute path imports
+    "declaration": false,
+    "moduleResolution": "node",
+    "module": "es6",
+    "jsx": "react",
+    "lib": ["dom", "es2017"],
+    "noEmitOnError": true,
+    "outDir": "dist",
+    "rootDirs": ["src"],
+    "target": "es6"
+  },
+  "exclude": ["node_modules", "dist"],
+  "extends": "../../tsconfig.json"
+}
