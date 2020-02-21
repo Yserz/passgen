@@ -26,7 +26,4 @@ const Root: React.FC<ConnectedProps & DispatchProps> = ({}) => {
   );
 };
 
-export default connect(
-  (state: RootState) => ({}),
-  {}
-)(Root);
+export default connect((state: RootState) => ({}), {})(Root);

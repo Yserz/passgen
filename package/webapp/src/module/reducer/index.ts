@@ -22,7 +22,7 @@ export type BindActionCreators = <M extends ActionCreatorsMapObject<any>>(
 ) => {
   [N in keyof M]: ReturnType<M[N]> extends ReduxThunkAction<any, any, any, any>
     ? (...args: Parameters<M[N]>) => ReturnType<ReturnType<M[N]>>
-    : M[N]
+    : M[N];
 };
 
 export const bindActionCreators: BindActionCreators = bindActionCreatorsRedux;

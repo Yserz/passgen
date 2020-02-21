@@ -30,6 +30,7 @@
     "prettier": true,
     "react-hooks-nesting": "error",
     "jsx-no-multiline-js": false,
+    "jsx-wrap-multiline": false,
     "jsx-no-lambda": false,
     "jsx-boolean-value": false,
     "space-within-parens": [true, 0]

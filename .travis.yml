@@ -21,7 +21,7 @@ cache:
   yarn: true
 
 script:
-  yarn test
+  yarn test:all
 
 # after_script:
 #   - 'bash <(curl -s https://codecov.io/bash) -f ./docs/coverage/lcov.info'
