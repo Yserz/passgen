@@ -4,6 +4,7 @@ import {
   ContainerSM,
   ContainerXS,
   Content,
+  FlexBox,
   Footer,
   Header,
   Input,
@@ -12,7 +13,7 @@ import {
   Text,
 } from '@passgen/ui-kit';
 import {RootState, bindActionCreators} from 'module/reducer';
-import React, {useCallback, useEffect, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import {connect} from 'react-redux';
 import {AnyAction, Dispatch} from 'redux';
 
@@ -21,6 +22,7 @@ interface Props extends React.HTMLProps<Document> {}
 const Index: React.FC<Props & ConnectedProps & DispatchProps> = ({}) => {
   const MIN_PASSWORD_LENGTH = 8;
   const MAX_PASSWORD_LENGTH = 1024;
+
   const [passwordLength, setPasswordLength] = useState<number | ''>(MIN_PASSWORD_LENGTH);
   const [showClipboardToast, setShowClipboardToast] = useState(false);
   const [password, setPassword] = useState();
@@ -66,31 +68,40 @@ const Index: React.FC<Props & ConnectedProps & DispatchProps> = ({}) => {
           </Box>
         )}
         <ContainerSM>
-          <Slider
-            min={MIN_PASSWORD_LENGTH}
-            max={MAX_PASSWORD_LENGTH}
-            value={limitedPasswordLength}
-            onInput={(event: React.ChangeEvent<HTMLInputElement>) => {
-              setPasswordLength(parseInt(event.target.value, 10));
-            }}
-            style={{marginTop: '56px'}}
-          />
-          <Text center bold style={{margin: 'auto 0 32px'}}>
-            {'Password length: '}
-          </Text>
-          <Input
-            value={passwordLength}
-            onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
-              const parsedNumber = parseInt(event.target.value, 10) || '';
-              setPasswordLength(parsedNumber || parsedNumber === '' ? parsedNumber : MIN_PASSWORD_LENGTH);
-            }}
-          />
+          <FlexBox align="center" justify="center" style={{marginTop: '72px'}}>
+            <FlexBox column={true} justify="center" style={{flexGrow: 9, flexBasis: 0, marginRight: '24px'}}>
+              <Small block bold style={{marginBottom: '16px'}}>
+                {'Password length'}
+              </Small>
+              <Slider
+                min={MIN_PASSWORD_LENGTH}
+                max={MAX_PASSWORD_LENGTH}
+                value={limitedPasswordLength}
+                onInput={(event: React.ChangeEvent<HTMLInputElement>) => {
+                  setPasswordLength(parseInt(event.target.value, 10));
+                }}
+              />
+            </FlexBox>
+            <Input
+              value={passwordLength}
+              onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
+                const parsedNumber = parseInt(event.target.value, 10);
+                if (parsedNumber) {
+                  const limitedNumber = Math.min(parsedNumber, MAX_PASSWORD_LENGTH);
+                  setPasswordLength(limitedNumber);
+                } else {
+                  setPasswordLength('');
+                }
+              }}
+              style={{flexGrow: 1, flexBasis: 0, marginBottom: 0}}
+            />
+          </FlexBox>
           <Box
             onClick={async (event: React.MouseEvent<HTMLDivElement>) => {
               showToast();
               await navigator.clipboard.writeText((event.target as any).innerText);
             }}
-            style={{overflowWrap: 'break-word'}}
+            style={{overflowWrap: 'break-word', marginTop: '56px'}}
           >
             {password}
           </Box>
