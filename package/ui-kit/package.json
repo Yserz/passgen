@@ -39,10 +39,12 @@
   "name": "@passgen/ui-kit",
   "repository": "https://github.com/Yserz/@passgen/tree/master/packages/ui-kit",
   "scripts": {
-    "build": "tsc && babel --config-file ./babel.config.js --extensions .ts,.tsx ./src -d ./dist --source-maps",
+    "build": "babel --config-file ./babel.config.js --extensions .ts,.tsx ./src -d ./dist --source-maps",
+    "build:watch": "yarn build --watch",
     "clean": "rimraf dist",
-    "dist": "yarn clean && yarn build",
-    "test": "tsc"
+    "dist": "yarn clean && yarn test:types && yarn build",
+    "test": "exit 0",
+    "test:types": "tsc --noEmit"
   },
   "version": "0.0.1"
 }

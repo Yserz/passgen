@@ -33,9 +33,10 @@
   "name": "@passgen/ui-kit-demo",
   "repository": "https://github.com/Yserz/passgen/tree/master/packages/ui-kit-demo",
   "scripts": {
-    "build": "tsc && babel --config-file ./babel.config.js --extensions .ts,.tsx ./src -d ./dist --source-maps",
+    "build": "babel --config-file ./babel.config.js --extensions .ts,.tsx ./src -d ./dist --source-maps",
     "clean": "rimraf dist",
-    "dist": "yarn clean && yarn build",
+    "dist": "yarn clean && yarn test:types && yarn build",
+    "test:types": "tsc --noEmit",
     "start": "webpack-dev-server"
   },
   "version": "0.0.1"
