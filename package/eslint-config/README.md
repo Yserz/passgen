@@ -5,7 +5,7 @@
 **Install**:
 
 ```bash
-yarn add --dev @wireapp/eslint-config \
+yarn add --dev @passgen/eslint-config \
                @typescript-eslint/eslint-plugin \
                @typescript-eslint/parser \
                eslint-config-prettier \
