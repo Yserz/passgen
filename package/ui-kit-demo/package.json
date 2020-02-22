@@ -36,7 +36,7 @@
     "build": "babel --config-file ./babel.config.js --extensions .ts,.tsx ./src -d ./dist --source-maps",
     "clean": "rimraf dist",
     "dist": "yarn clean && yarn test:types && yarn build",
-    "test:types": "tsc --noEmit",
+    "test:types": "tsc",
     "start": "webpack-dev-server"
   },
   "version": "0.0.1"

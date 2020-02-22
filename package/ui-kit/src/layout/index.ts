@@ -5,3 +5,4 @@ export * from './FlexBox';
 export * from './Footer';
 export * from './Header';
 export * from './sizes';
+export * from './Theme';
