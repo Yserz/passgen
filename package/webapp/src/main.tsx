@@ -22,7 +22,7 @@ const render = (Component: any) => {
         <Component />
       </Provider>
     </AppContainer>,
-    document.getElementById('main')
+    document.getElementById('main'),
   );
 };
 

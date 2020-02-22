@@ -24,7 +24,7 @@ export const QUERY: QueryMap = {
 
 const media = Object.entries(QUERY).reduce<QueryMap>(
   (accumulator, [key, value]) => ({...accumulator, [key]: `@media (${value})`}),
-  {} as QueryMap
+  {} as QueryMap,
 );
 
 export default media;

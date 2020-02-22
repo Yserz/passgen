@@ -15,7 +15,7 @@ class IndexPage {
 
   constructor(
     store: MockStoreEnhanced<RecursivePartial<RootState>, ThunkDispatch<RootState, Api, AnyAction>>,
-    history?: History<any>
+    history?: History<any>,
   ) {
     this.driver = mountComponent(<Index />, store, history);
   }
@@ -28,7 +28,7 @@ describe('when visiting the index page', () => {
     const indexPage = new IndexPage(
       mockStoreFactory()({
         ...initialRootState,
-      })
+      }),
     );
 
     expect(indexPage.getHeader().exists())

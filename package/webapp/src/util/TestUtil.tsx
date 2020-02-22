@@ -12,7 +12,7 @@ import {Api, RootState} from '../module/reducer';
 
 export const withStore = (
   children: React.ReactNode,
-  store: MockStoreEnhanced<RecursivePartial<RootState>, ThunkDispatch<RootState, Api, AnyAction>>
+  store: MockStoreEnhanced<RecursivePartial<RootState>, ThunkDispatch<RootState, Api, AnyAction>>,
 ) => <Provider store={store}>{children}</Provider>;
 
 export const withTheme = (component: React.ReactNode) => <StyledApp>{component}</StyledApp>;
@@ -24,5 +24,5 @@ export const withRouter = (component: React.ReactNode, history: History) => (
 export const mountComponent = (
   component: React.ReactNode,
   store: MockStoreEnhanced<RecursivePartial<RootState>, ThunkDispatch<RootState, Api, AnyAction>>,
-  history: History = createMemoryHistory()
+  history: History = createMemoryHistory(),
 ) => mount(withRouter(withTheme(withStore(component, store)), history));

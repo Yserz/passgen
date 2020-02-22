@@ -18,7 +18,7 @@ export type ThunkDispatch = ReduxThunkDispatch<RootState, Api, AnyAction>;
 
 export type BindActionCreators = <M extends ActionCreatorsMapObject<any>>(
   actionCreators: M,
-  dispatch: Dispatch
+  dispatch: Dispatch,
 ) => {
   [N in keyof M]: ReturnType<M[N]> extends ReduxThunkAction<any, any, any, any>
     ? (...args: Parameters<M[N]>) => ReturnType<ReturnType<M[N]>>

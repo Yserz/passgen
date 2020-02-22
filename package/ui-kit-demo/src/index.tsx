@@ -12,7 +12,7 @@ function render(Component: any) {
     <AppContainer>
       <Component />
     </AppContainer>,
-    document.getElementById('main')
+    document.getElementById('main'),
   );
 }
 
