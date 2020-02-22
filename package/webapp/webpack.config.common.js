@@ -2,6 +2,7 @@ const path = require('path');
 
 const dist = path.resolve(__dirname, 'dist/');
 const src = path.resolve(__dirname, 'src/');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   devtool: 'source-map',
@@ -34,7 +35,11 @@ module.exports = {
     path: path.resolve(dist),
     publicPath: '/',
   },
-  plugins: [],
+  plugins: [
+    new HtmlWebpackPlugin({
+      title: 'PassGen',
+    }),
+  ],
   resolve: {
     alias: {
       resource: path.resolve('resource'),
