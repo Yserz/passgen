@@ -13,7 +13,7 @@ import {
   Text,
 } from '@passgen/ui-kit';
 import {RootState, bindActionCreators} from 'module/reducer';
-import React, {useEffect, useRef, useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {connect} from 'react-redux';
 import {AnyAction, Dispatch} from 'redux';
 
@@ -53,20 +53,32 @@ const Index: React.FC<Props & ConnectedProps & DispatchProps> = ({}) => {
         </ContainerXS>
       </Header>
       <Content style={{marginBottom: '48px'}}>
-        {showClipboardToast && (
-          <Box
-            style={{
-              backgroundColor: COLOR.GRAY,
-              borderRadius: '4px',
-              left: 0,
-              position: 'absolute',
-              right: 0,
-              textAlign: 'center',
-            }}
-          >
-            <Text color={COLOR.WHITE}>{'Password copied!'}</Text>
-          </Box>
-        )}
+        <div
+          style={{
+            left: 0,
+            minHeight: '66px', // height + padding
+            paddingTop: '16px',
+            position: 'sticky',
+            right: 0,
+            top: 0,
+            zIndex: 99,
+          }}
+        >
+          {showClipboardToast && (
+            <div
+              style={{
+                backgroundColor: COLOR.GRAY,
+                borderRadius: '8px',
+                display: 'flex',
+                height: '50px',
+              }}
+            >
+              <Text center color={COLOR.WHITE} style={{margin: 'auto'}}>
+                {'Password copied!'}
+              </Text>
+            </div>
+          )}
+        </div>
         <ContainerSM>
           <FlexBox align="center" justify="center" style={{marginTop: '72px'}}>
             <FlexBox column={true} justify="center" style={{flexGrow: 9, flexBasis: 0, marginRight: '24px'}}>
