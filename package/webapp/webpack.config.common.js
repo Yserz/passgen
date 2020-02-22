@@ -38,6 +38,11 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       title: 'PassGen',
+      meta: {
+        viewport: 'width=device-width, initial-scale=1.0, user-scalable=no',
+        ['apple-mobile-web-app-capable']: 'yes',
+        ['apple-mobile-web-app-title']: 'PassGen',
+      },
     }),
   ],
   resolve: {
