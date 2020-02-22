@@ -112,8 +112,6 @@
     "bundle:prod": "cross-env-shell NODE_ENV=production yarn clear && yarn webpack",
     "bundle:staging": "cross-env-shell BABEL_ENV=development NODE_ENV=production yarn clear && yarn webpack",
     "clear": "rimraf dist",
-    "postversion": "git push && git push --tags",
-    "preversion": "yarn test",
     "start": "webpack-dev-server --config webpack.config.dev.js",
     "test": "yarn test:types && yarn clear && webpack --config webpack.config.test.js && karma start karma.conf.js",
     "test:types": "tsc --noEmit"
