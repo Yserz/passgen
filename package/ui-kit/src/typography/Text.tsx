@@ -1,7 +1,7 @@
-import {ObjectInterpolation} from '@emotion/core';
+/** @jsx jsx */
+import {ObjectInterpolation, jsx} from '@emotion/core';
 import {TextTransformProperty} from 'csstype';
-import React from 'react';
-import {COLOR} from '../identity';
+import {Theme} from '../layout/';
 import {filterProps} from '../util';
 
 export interface TextProps<T = HTMLSpanElement> extends React.HTMLProps<T> {
@@ -17,7 +17,7 @@ export interface TextProps<T = HTMLSpanElement> extends React.HTMLProps<T> {
   truncate?: boolean;
 }
 
-const filterTextProps = (props: {}) => {
+export const filterTextProps = (props: TextProps) => {
   return filterProps(props, [
     'block',
     'bold',
@@ -32,18 +32,21 @@ const filterTextProps = (props: {}) => {
   ]);
 };
 
-export const textStyle: <T>(props: TextProps<T>) => ObjectInterpolation<undefined> = ({
-  block = false,
-  bold = false,
-  center = false,
-  color = COLOR.TEXT,
-  fontSize = '16px',
-  light = false,
-  muted = false,
-  noWrap = false,
-  textTransform = 'none',
-  truncate = false,
-}) => ({
+export const textStyle: <T>(theme: Theme, props: TextProps<T>) => ObjectInterpolation<undefined> = (
+  theme,
+  {
+    block = false,
+    bold = false,
+    center = false,
+    color = theme.general.color,
+    fontSize = '16px',
+    light = false,
+    muted = false,
+    noWrap = false,
+    textTransform = 'none',
+    truncate = false,
+  },
+) => ({
   color: color,
   display: block ? 'block' : 'inline',
   fontSize: fontSize,
@@ -56,6 +59,10 @@ export const textStyle: <T>(props: TextProps<T>) => ObjectInterpolation<undefine
   whiteSpace: noWrap ? 'nowrap' : undefined,
 });
 
-const Text = (props: TextProps) => <span css={textStyle(props)} {...filterTextProps(props)} />;
+export const Text = (props: TextProps) => <span css={theme => textStyle(theme, props)} {...filterTextProps(props)} />;
 
-export {Text, filterTextProps};
+export const Bold = (props: TextProps) => <Text bold {...props} />;
+export const Small = (props: TextProps) => <Text fontSize={'12px'} {...props} />;
+export const Muted = (props: TextProps) => <Text muted {...props} />;
+export const Uppercase = (props: TextProps) => <Text textTransform={'uppercase'} {...props} />;
+export const Large = (props: TextProps) => <Text fontSize={'48px'} light {...props} />;

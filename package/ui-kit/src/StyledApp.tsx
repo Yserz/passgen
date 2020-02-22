@@ -1,43 +1,34 @@
-import {ObjectInterpolation} from '@emotion/core';
-import React from 'react';
+/** @jsx jsx */
+import {ObjectInterpolation, jsx} from '@emotion/core';
 import {GlobalStyle} from './GlobalStyle';
-import {COLOR} from './identity';
+import {THEME_ID, Theme, ThemeProvider} from './layout/Theme';
 import {filterProps} from './util';
 
 export interface StyledAppContainerProps<T = HTMLDivElement> extends React.HTMLProps<T> {
   backgroundColor?: string;
+  themeId?: THEME_ID;
 }
 
-const StyledAppContainerStyle: <T>(props: StyledAppContainerProps<T>) => ObjectInterpolation<undefined> = ({
-  backgroundColor = COLOR.GRAY_LIGHTEN_88,
-}) => ({
-  MozOsxFontSmoothing: 'grayscale',
-  WebkitFontSmoothing: 'antialiased',
-  backgroundColor: backgroundColor,
-  color: COLOR.TEXT,
-  display: 'flex',
-  flexDirection: 'column',
-  fontFamily: '-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Helvetica, Arial, sans-serif',
-  fontWeight: 300,
-  lineHeight: 1.5,
-  minHeight: '100vh',
-
-  '*': {
-    boxSizing: 'border-box',
-  },
+const styledAppContainerStyle: <T>(
+  theme: Theme,
+  props: StyledAppContainerProps<T>,
+) => ObjectInterpolation<undefined> = (theme, {backgroundColor = theme.general.backgroundColor}) => ({
+  background: backgroundColor,
+  transition: 'background 0.15s',
 });
 
-const filterStyledAppContainerProps = (props: Object) => filterProps(props, ['backgroundColor']);
+const filterStyledAppContainerProps = (props: StyledAppContainerProps) =>
+  filterProps(props, ['backgroundColor', 'themeId']);
 
 const StyledAppContainer = (props: StyledAppContainerProps) => (
-  <div css={StyledAppContainerStyle(props)} {...filterStyledAppContainerProps(props)} />
+  <div css={theme => styledAppContainerStyle(theme, props)} {...filterStyledAppContainerProps(props)} />
 );
 
-const StyledApp = ({children, ...props}: StyledAppContainerProps) => (
-  <StyledAppContainer {...props}>
-    <GlobalStyle />
-    {children}
-  </StyledAppContainer>
+export const StyledApp = ({themeId = THEME_ID.LIGHT, children, ...props}: StyledAppContainerProps) => (
+  <ThemeProvider themeId={themeId}>
+    <StyledAppContainer {...props}>
+      <GlobalStyle />
+      {children}
+    </StyledAppContainer>
+  </ThemeProvider>
 );
-
-export {StyledApp};

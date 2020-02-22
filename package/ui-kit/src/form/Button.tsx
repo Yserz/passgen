@@ -1,6 +1,7 @@
 import {ObjectInterpolation} from '@emotion/core';
 import React from 'react';
 import {COLOR, defaultTransition} from '../identity';
+import {Theme} from '../layout';
 import {TextProps, filterTextProps, textStyle} from '../typography';
 import {filterProps} from '../util';
 
@@ -16,20 +17,23 @@ const filterButtonLinkProps = (props: Object) => {
   return filterProps(filterTextProps(props), ['backgroundColor', 'disabled', 'noCapital']);
 };
 
-const buttonStyle: <T>(props: ButtonProps<T>) => ObjectInterpolation<undefined> = ({
-  backgroundColor = COLOR.BLUE,
-  block = false,
-  disabled = false,
-  bold = true,
-  center = true,
-  color = COLOR.WHITE,
-  fontSize = '16px',
-  noWrap = true,
-  textTransform = 'uppercase',
-  truncate = true,
-  ...props
-}) => ({
-  ...textStyle({
+const buttonStyle: <T>(theme: Theme, props: ButtonProps<T>) => ObjectInterpolation<undefined> = (
+  theme,
+  {
+    backgroundColor = COLOR.BLUE,
+    block = false,
+    disabled = false,
+    bold = true,
+    center = true,
+    color = COLOR.WHITE,
+    fontSize = '16px',
+    noWrap = true,
+    textTransform = 'uppercase',
+    truncate = true,
+    ...props
+  },
+) => ({
+  ...textStyle(theme, {
     block,
     bold,
     center,
@@ -63,14 +67,19 @@ const buttonStyle: <T>(props: ButtonProps<T>) => ObjectInterpolation<undefined> 
   width: block ? '100%' : 'auto',
 });
 
-const buttonLinkStyle: (props: ButtonProps<HTMLAnchorElement>) => ObjectInterpolation<undefined> = props => ({
-  ...buttonStyle(props),
+const buttonLinkStyle: (theme: Theme, props: ButtonProps<HTMLAnchorElement>) => ObjectInterpolation<undefined> = (
+  theme,
+  props,
+) => ({
+  ...buttonStyle(theme, props),
   display: 'inline-block !important',
 });
 
-const Button = (props: ButtonProps) => <button css={buttonStyle(props)} {...filterButtonProps(props)} />;
+const Button = (props: ButtonProps) => (
+  <button css={theme => buttonStyle(theme, props)} {...filterButtonProps(props)} />
+);
 const ButtonLink = (props: ButtonProps<HTMLAnchorElement>) => (
-  <a css={buttonLinkStyle(props)} {...filterButtonLinkProps(props)} />
+  <a css={theme => buttonLinkStyle(theme, props)} {...filterButtonLinkProps(props)} />
 );
 
 export {Button, ButtonLink, buttonStyle, filterButtonProps};
