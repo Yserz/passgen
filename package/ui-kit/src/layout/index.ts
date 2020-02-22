@@ -6,3 +6,4 @@ export * from './Footer';
 export * from './Header';
 export * from './sizes';
 export * from './Theme';
+export * from './Box';
