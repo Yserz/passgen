@@ -4,14 +4,13 @@ import {Theme} from '../layout';
 import {filterProps} from '../util';
 import {InputProps, filterInputProps, inputStyle} from './Input';
 
-export interface SliderProps<T = HTMLInputElement> extends InputProps<T> {}
+export interface SliderProps<T = HTMLInputElement> {}
 
 const filterSliderProps = (props: Object) => {
-  return filterProps(filterInputProps(props), []);
+  return filterProps(props, []);
 };
 
 const sliderStyle: <T>(theme: Theme, props: SliderProps<T>) => ObjectInterpolation<undefined> = (theme, props) => ({
-  ...inputStyle(theme, props),
   width: '100%',
 });
 
