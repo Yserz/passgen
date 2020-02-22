@@ -14,7 +14,7 @@ export class AuthAction {
           handle: login.handle,
           password: '******',
           phone: login.phone,
-        })
+        }),
       );
       try {
         validator.validatePasswordLength(String(login.password));

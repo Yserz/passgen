@@ -30,7 +30,7 @@ const createMiddleware = (thunkArguments: any) => {
           nextState: 'info',
           prevState: false,
         },
-      })
+      }),
     );
   }
   let middleware = applyMiddleware(...middlewares);

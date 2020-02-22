@@ -1,4 +1,7 @@
 .travis.yml
 **/dist/**
+**/coverage/**
+**/bin/**
 CHANGELOG.md
 node_modules
+package.json

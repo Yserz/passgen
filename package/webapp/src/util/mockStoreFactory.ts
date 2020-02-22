@@ -17,7 +17,7 @@ export const mockStoreFactory = (
   parameters: MockStoreParameters = {
     actions: defaultActions,
     localStorage: defaultLocalStorage,
-  }
+  },
 ) => {
   const {actions, localStorage} = parameters;
   return configureStore<RecursivePartial<RootState>, ThunkDispatch>([

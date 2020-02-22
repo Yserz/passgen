@@ -1,0 +1,20 @@
+{
+  "description": "PassGen ESLint config",
+  "license": "GPL-3.0",
+  "main": "eslintrc.json",
+  "name": "@passgen/eslint-config",
+  "peerDependencies": {
+    "@typescript-eslint/eslint-plugin": ">=2",
+    "@typescript-eslint/parser": ">=2",
+    "eslint": ">=6",
+    "eslint-config-prettier": ">=6",
+    "eslint-plugin-jsdoc": ">=18",
+    "eslint-plugin-no-unsanitized": ">=3",
+    "eslint-plugin-prettier": ">=3",
+    "eslint-plugin-react": ">=7",
+    "eslint-plugin-react-hooks": ">=2",
+    "prettier": ">=1.19"
+  },
+  "repository": "https://github.com/Yserz/passgen/tree/master/package/eslint-config",
+  "version": "0.1.0"
+}
