@@ -1,6 +1,18 @@
-import {ContainerSM, ContainerXS, Content, Footer, Header, Slider, Small, Text, TextArea} from '@passgen/ui-kit';
+import {
+  Box,
+  COLOR,
+  ContainerSM,
+  ContainerXS,
+  Content,
+  Footer,
+  Header,
+  Input,
+  Slider,
+  Small,
+  Text,
+} from '@passgen/ui-kit';
 import {RootState, bindActionCreators} from 'module/reducer';
-import React, {useState} from 'react';
+import React, {useCallback, useEffect, useState} from 'react';
 import {connect} from 'react-redux';
 import {AnyAction, Dispatch} from 'redux';
 
@@ -8,42 +20,83 @@ interface Props extends React.HTMLProps<Document> {}
 
 const Index: React.FC<Props & ConnectedProps & DispatchProps> = ({}) => {
   const MIN_PASSWORD_LENGTH = 8;
-  const [passwordLength, setPasswordLength] = useState(MIN_PASSWORD_LENGTH);
-  const generatePassword = () => {
+  const MAX_PASSWORD_LENGTH = 1024;
+  const [passwordLength, setPasswordLength] = useState<number | ''>(MIN_PASSWORD_LENGTH);
+  const [showClipboardToast, setShowClipboardToast] = useState(false);
+  const [password, setPassword] = useState();
+
+  const limitedPasswordLength = Math.max(MIN_PASSWORD_LENGTH, passwordLength || 0);
+  useEffect(() => {
     const charset = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
     const array = [];
-    for (let i = 0, n = charset.length; i < passwordLength; ++i) {
+    for (let i = 0, n = charset.length; i < limitedPasswordLength; ++i) {
       array.push(charset.charAt(Math.floor(Math.random() * n)));
     }
 
-    return array.join('');
+    setPassword(array.join(''));
+  }, [passwordLength]);
+
+  const showToast = () => {
+    setTimeout(() => {
+      setShowClipboardToast(false);
+    }, 3000);
+    setShowClipboardToast(true);
   };
+
   return (
     <>
-      <Header data-uie-name="element-header">
+      <Header data-uie-name="element-header" style={{backgroundColor: COLOR.GRAY_LIGHTEN_64}}>
         <ContainerXS centerText>
           <h2>{'PassGen'}</h2>
         </ContainerXS>
       </Header>
-      <Content>
+      <Content style={{marginBottom: '48px'}}>
+        {showClipboardToast && (
+          <Box
+            style={{
+              backgroundColor: COLOR.GRAY,
+              borderRadius: '4px',
+              left: 0,
+              position: 'absolute',
+              right: 0,
+              textAlign: 'center',
+            }}
+          >
+            <Text color={COLOR.WHITE}>{'Password copied!'}</Text>
+          </Box>
+        )}
         <ContainerSM>
           <Slider
             min={MIN_PASSWORD_LENGTH}
-            max={1024}
-            value={passwordLength}
-            onInput={event => {
-              setPasswordLength((event as any).target.value);
+            max={MAX_PASSWORD_LENGTH}
+            value={limitedPasswordLength}
+            onInput={(event: React.ChangeEvent<HTMLInputElement>) => {
+              setPasswordLength(parseInt(event.target.value, 10));
             }}
             style={{marginTop: '56px'}}
           />
-          <Text block center bold style={{margin: 'auto 0 32px'}}>
+          <Text center bold style={{margin: 'auto 0 32px'}}>
             {'Password length: '}
-            {passwordLength}
           </Text>
-          <TextArea style={{height: '300px'}} value={generatePassword()} />
+          <Input
+            value={passwordLength}
+            onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
+              const parsedNumber = parseInt(event.target.value, 10) || '';
+              setPasswordLength(parsedNumber || parsedNumber === '' ? parsedNumber : MIN_PASSWORD_LENGTH);
+            }}
+          />
+          <Box
+            onClick={async (event: React.MouseEvent<HTMLDivElement>) => {
+              showToast();
+              await navigator.clipboard.writeText((event.target as any).innerText);
+            }}
+            style={{overflowWrap: 'break-word'}}
+          >
+            {password}
+          </Box>
         </ContainerSM>
       </Content>
-      <Footer style={{position: 'fixed', bottom: 0, width: '100%'}}>
+      <Footer style={{position: 'fixed', bottom: 0, width: '100%', backgroundColor: COLOR.GRAY_LIGHTEN_64}}>
         <ContainerXS centerText>
           <Small>{'PassGen'}</Small>
         </ContainerXS>
