@@ -71,6 +71,7 @@ module.exports = {
     new WorkboxPlugin.InjectManifest({
       swDest: 'service-worker.js',
       swSrc: path.resolve(src, 'service-worker.js'),
+      maximumFileSizeToCacheInBytes: process.env.NODE_ENV !== 'production' ? 5000000 : undefined,
     }),
   ],
   resolve: {
