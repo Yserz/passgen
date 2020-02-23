@@ -83,9 +83,10 @@ const Index: React.FC<Props & ConnectedProps & DispatchProps> = ({}) => {
           <FlexBox align="center" justify="center" style={{marginTop: '72px'}}>
             <FlexBox column={true} justify="center" style={{flexGrow: 9, flexBasis: 0, marginRight: '24px'}}>
               <Small block bold style={{marginBottom: '16px'}}>
-                {'Password length'}
+                <label htmlFor="pwLengthInput">{'Password length'}</label>
               </Small>
               <Slider
+                id="pwLengthInput"
                 min={MIN_PASSWORD_LENGTH}
                 max={MAX_PASSWORD_LENGTH}
                 value={limitedPasswordLength}
@@ -95,6 +96,7 @@ const Index: React.FC<Props & ConnectedProps & DispatchProps> = ({}) => {
               />
             </FlexBox>
             <Input
+              id="pwLengthInput"
               value={passwordLength}
               onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
                 const parsedNumber = parseInt(event.target.value, 10);
