@@ -42,8 +42,6 @@ module.exports = {
       title: 'PassGen',
       meta: {
         viewport: 'width=device-width, initial-scale=1.0, user-scalable=no',
-        ['apple-mobile-web-app-capable']: 'yes',
-        ['apple-mobile-web-app-title']: 'PassGen',
         description: 'A simple password generator',
       },
     }),
@@ -52,22 +50,19 @@ module.exports = {
       short_name: 'PassGen',
       description: 'Just a password generator',
       background_color: '#ffffff',
-      crossorigin: 'use-credentials',
-      // icons: [
-      //   {
-      //     src: path.resolve('src/assets/icon.png'),
-      //     sizes: [96, 128, 192, 256, 384, 512],
-      //   },
-      //   {
-      //     src: path.resolve('src/assets/large-icon.png'),
-      //     size: '1024x1024',
-      //   },
-      //   {
-      //     src: path.resolve('src/assets/maskable-icon.png'),
-      //     size: '1024x1024',
-      //     purpose: 'maskable',
-      //   },
-      // ],
+      ios: true,
+      icons: [
+        {
+          src: path.resolve('img/logo_512.png'),
+          sizes: [96, 128, 192, 256, 384, 512],
+          ios: true,
+        },
+        {
+          src: path.resolve('img/logo_1024.png'),
+          size: 1024,
+          ios: 'startup',
+        },
+      ],
     }),
     new WorkboxPlugin.InjectManifest({
       swDest: 'service-worker.js',
