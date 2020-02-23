@@ -1,8 +1,10 @@
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const WorkboxPlugin = require('workbox-webpack-plugin');
+const WebpackPwaManifest = require('webpack-pwa-manifest');
 
 const dist = path.resolve(__dirname, 'dist/');
 const src = path.resolve(__dirname, 'src/');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   devtool: 'source-map',
@@ -43,6 +45,32 @@ module.exports = {
         ['apple-mobile-web-app-capable']: 'yes',
         ['apple-mobile-web-app-title']: 'PassGen',
       },
+    }),
+    new WebpackPwaManifest({
+      name: 'PassGen',
+      short_name: 'PassGen',
+      description: 'Just a password generator',
+      background_color: '#ffffff',
+      crossorigin: 'use-credentials',
+      // icons: [
+      //   {
+      //     src: path.resolve('src/assets/icon.png'),
+      //     sizes: [96, 128, 192, 256, 384, 512],
+      //   },
+      //   {
+      //     src: path.resolve('src/assets/large-icon.png'),
+      //     size: '1024x1024',
+      //   },
+      //   {
+      //     src: path.resolve('src/assets/maskable-icon.png'),
+      //     size: '1024x1024',
+      //     purpose: 'maskable',
+      //   },
+      // ],
+    }),
+    new WorkboxPlugin.InjectManifest({
+      swDest: 'service-worker.js',
+      swSrc: path.resolve(src, 'service-worker.js'),
     }),
   ],
   resolve: {

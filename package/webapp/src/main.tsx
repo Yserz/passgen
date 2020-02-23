@@ -8,12 +8,33 @@ import ReactDOM from 'react-dom';
 import {AppContainer} from 'react-hot-loader';
 import {Provider} from 'react-redux';
 import Root from 'Root';
+import {Workbox} from 'workbox-window';
 
 const store = configureStore({actions: actionRoot, config: {}});
 
 const main = document.createElement('div');
 main.id = 'main';
 document.body.appendChild(main);
+
+const registerServiceWorker = async (): Promise<void> => {
+  if ('serviceWorker' in navigator) {
+    const updateChannel = new BroadcastChannel('precache-channel');
+    updateChannel.addEventListener('message', event => {
+      if (confirm(`New content is available!. Click OK to refresh`)) {
+        window.location.reload();
+      }
+    });
+
+    const workbox = new Workbox('/service-worker.js');
+
+    try {
+      const registration = await workbox.register();
+      console.log('Successfully registered service worker', registration);
+    } catch (error) {
+      console.error('Failed to register service worker', error && error.message);
+    }
+  }
+};
 
 const render = (Component: any) => {
   ReactDOM.render(
@@ -27,6 +48,7 @@ const render = (Component: any) => {
 };
 
 runApp();
+registerServiceWorker().catch(console.error);
 
 function runApp() {
   render(Root);
