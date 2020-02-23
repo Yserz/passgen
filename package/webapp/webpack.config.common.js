@@ -44,6 +44,7 @@ module.exports = {
         viewport: 'width=device-width, initial-scale=1.0, user-scalable=no',
         ['apple-mobile-web-app-capable']: 'yes',
         ['apple-mobile-web-app-title']: 'PassGen',
+        description: 'A simple password generator',
       },
     }),
     new WebpackPwaManifest({
