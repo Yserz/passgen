@@ -654,7 +654,7 @@
     "@babel/helper-plugin-utils" "^7.8.3"
     "@babel/plugin-syntax-jsx" "^7.8.3"
 
-"@babel/plugin-transform-react-jsx@^7.1.6", "@babel/plugin-transform-react-jsx@^7.8.3":
+"@babel/plugin-transform-react-jsx@^7.3.0", "@babel/plugin-transform-react-jsx@^7.8.3":
   version "7.8.3"
   resolved "https://registry.yarnpkg.com/@babel/plugin-transform-react-jsx/-/plugin-transform-react-jsx-7.8.3.tgz#4220349c0390fdefa505365f68c103562ab2fc4a"
   integrity sha512-r0h+mUiyL595ikykci+fbwm9YzmuOrUBi0b+FDIKmi3fPQyFokWVEMJnRWHJPPQEjyFJyna9WZC6Viv6UHSv1g==
@@ -917,22 +917,22 @@
     lodash "^4.17.13"
     to-fast-properties "^2.0.0"
 
-"@emotion/babel-plugin-jsx-pragmatic@^0.1.2":
+"@emotion/babel-plugin-jsx-pragmatic@^0.1.5":
   version "0.1.5"
   resolved "https://registry.yarnpkg.com/@emotion/babel-plugin-jsx-pragmatic/-/babel-plugin-jsx-pragmatic-0.1.5.tgz#27debfe9c27c4d83574d509787ae553bf8a34d7e"
   integrity sha512-y+3AJ0SItMDaAgGPVkQBC/S/BaqaPACkQ6MyCI2CUlrjTxKttTVfD3TMtcs7vLEcLxqzZ1xiG0vzwCXjhopawQ==
   dependencies:
     "@babel/plugin-syntax-jsx" "^7.2.0"
 
-"@emotion/babel-preset-css-prop@10.0.9":
-  version "10.0.9"
-  resolved "https://registry.yarnpkg.com/@emotion/babel-preset-css-prop/-/babel-preset-css-prop-10.0.9.tgz#70386bd88fe4d8896e1b9729364daf3a6051f726"
-  integrity sha512-fETOWFEe734RlJZTuq6+NeHTzl+Kge4yRm3yrQC+Y2I+KxZjYiU5XUPdbylr0EATbkSzFXgVGKppciZfA5j1mw==
+"@emotion/babel-preset-css-prop@10.0.27":
+  version "10.0.27"
+  resolved "https://registry.yarnpkg.com/@emotion/babel-preset-css-prop/-/babel-preset-css-prop-10.0.27.tgz#58868d9a6afee0eeaeb0fa9dc5ccb1b12d4f786b"
+  integrity sha512-rducrjTpLGDholp0l2l4pXqpzAqYYGMg/x4IteO0db2smf6zegn6RRZdDnbaoMSs63tfPWgo2WukT1/F1gX/AA==
   dependencies:
-    "@babel/plugin-transform-react-jsx" "^7.1.6"
-    "@emotion/babel-plugin-jsx-pragmatic" "^0.1.2"
-    babel-plugin-emotion "^10.0.9"
-    object-assign "^4.1.1"
+    "@babel/plugin-transform-react-jsx" "^7.3.0"
+    "@babel/runtime" "^7.5.5"
+    "@emotion/babel-plugin-jsx-pragmatic" "^0.1.5"
+    babel-plugin-emotion "^10.0.27"
 
 "@emotion/cache@^10.0.27":
   version "10.0.27"
@@ -3183,7 +3183,7 @@ babel-plugin-emotion@10.0.9:
     find-root "^1.1.0"
     source-map "^0.5.7"
 
-babel-plugin-emotion@^10.0.27, babel-plugin-emotion@^10.0.9:
+babel-plugin-emotion@^10.0.27:
   version "10.0.27"
   resolved "https://registry.yarnpkg.com/babel-plugin-emotion/-/babel-plugin-emotion-10.0.27.tgz#59001cf5de847c1d61f2079cd906a90a00d3184f"
   integrity sha512-SUNYcT4FqhOqvwv0z1oeYhqgheU8qrceLojuHyX17ngo7WtWqN5I9l3IGHzf21Xraj465CVzF4IvOlAF+3ed0A==
