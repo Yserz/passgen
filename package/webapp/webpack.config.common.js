@@ -55,7 +55,13 @@ module.exports = {
         {
           src: path.resolve('img/logo_512.png'),
           sizes: [96, 128, 192, 256, 384, 512],
+          ios: false,
+        },
+        {
+          src: path.resolve('img/logo_ios_512.png'),
+          sizes: [96, 128, 192, 256, 384, 512],
           ios: true,
+          purpose: 'maskable',
         },
         {
           src: path.resolve('img/logo_1024.png'),
