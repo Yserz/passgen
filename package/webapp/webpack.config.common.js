@@ -55,7 +55,7 @@ module.exports = {
       ios: true,
       lang: 'en-US',
       version: pkg.version,
-      'theme-color': '#fff',
+      theme_color: '#fff',
       icons: [
         {
           src: path.resolve('img/logo_1024.png'),
