@@ -62,7 +62,11 @@ module.exports = {
         display: 'standalone', // "fullscreen", "standalone", "minimal-ui" or "browser"
         orientation: 'any', // "any", "natural", "portrait" or "landscape"
         scope: '/',
+        start_url: '/',
+        version: '0.1.0',
         logging: false,
+        pixel_art: false,
+        loadManifestWithCredentials: false,
         icons: {
           android: true,
           appleIcon: true,
