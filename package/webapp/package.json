@@ -49,7 +49,6 @@
     "eslint-plugin-jasmine": "2.10.1",
     "eslint-plugin-prettier": "3.0.1",
     "eslint-plugin-react": "7.12.4",
-    "favicons-webpack-plugin": "2.1.0",
     "generate-changelog": "1.7.1",
     "html-webpack-plugin": "3.2.0",
     "husky": "4.2.3",
@@ -84,6 +83,7 @@
     "webpack": "4.41.6",
     "webpack-cli": "3.3.11",
     "webpack-dev-server": "3.10.3",
+    "webpack-pwa-manifest": "4.2.0",
     "workbox-webpack-plugin": "5.0.0"
   },
   "lint-staged": {

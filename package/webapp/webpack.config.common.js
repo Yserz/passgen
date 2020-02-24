@@ -1,7 +1,8 @@
 const path = require('path');
+const pkg = require('./package');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const WorkboxPlugin = require('workbox-webpack-plugin');
-const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
+const WebpackPwaManifest = require('webpack-pwa-manifest');
 
 const dist = path.resolve(__dirname, 'dist/');
 const src = path.resolve(__dirname, 'src/');
@@ -40,44 +41,39 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       title: 'PassGen',
+      favicon: './img/logo_1024.png',
       meta: {
         viewport: 'width=device-width, initial-scale=1.0, user-scalable=no',
         description: 'A simple password generator',
       },
     }),
-    new FaviconsWebpackPlugin({
-      logo: './img/logo_1024.png',
-      devMode: 'webapp',
-      favicons: {
-        // https://github.com/itgalaxy/favicons#usage
-        appName: 'PassGen - Simple password generator',
-        appShortName: 'PassGen',
-        appDescription: 'Simple password generator',
-        developerName: null,
-        developerURL: null,
-        lang: 'en-US',
-        background: '#fff',
-        theme_color: '#fff',
-        appleStatusBarStyle: 'default', // "black-translucent", "default", "black"
-        display: 'standalone', // "fullscreen", "standalone", "minimal-ui" or "browser"
-        orientation: 'any', // "any", "natural", "portrait" or "landscape"
-        scope: '/',
-        start_url: '/',
-        version: '0.1.0',
-        logging: false,
-        pixel_art: false,
-        loadManifestWithCredentials: false,
-        icons: {
-          android: true,
-          appleIcon: true,
-          appleStartup: true,
-          coast: false,
-          favicons: true,
-          firefox: true,
-          windows: true,
-          yandex: false,
+    new WebpackPwaManifest({
+      name: 'PassGen - Simple password generator',
+      short_name: 'PassGen',
+      description: 'Just a password generator',
+      background_color: '#fff',
+      ios: true,
+      lang: 'en-US',
+      version: pkg.version,
+      'theme-color': '#fff',
+      icons: [
+        {
+          src: path.resolve('img/logo_1024.png'),
+          sizes: [57, 60, 72, 76, 114, 120, 144, 152, 167, 180, 1024],
+          ios: false,
         },
-      },
+        {
+          src: path.resolve('img/logo_ios_1024.png'),
+          sizes: [57, 60, 72, 76, 114, 120, 144, 152, 167, 180, 1024],
+          ios: true,
+          purpose: 'maskable',
+        },
+        {
+          src: path.resolve('img/logo_1024.png'),
+          size: 1024,
+          ios: 'startup',
+        },
+      ],
     }),
     new WorkboxPlugin.InjectManifest({
       swDest: 'service-worker.js',
