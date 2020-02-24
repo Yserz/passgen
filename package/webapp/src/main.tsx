@@ -1,6 +1,7 @@
 /* tslint:disable:ordered-imports */
 import 'url-search-params-polyfill';
-import '@babel/polyfill';
+import 'core-js/stable';
+import 'regenerator-runtime/runtime';
 import configureStore from 'configureStore';
 import {actionRoot} from 'module/action/';
 import React from 'react';
