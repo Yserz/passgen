@@ -1,7 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const WorkboxPlugin = require('workbox-webpack-plugin');
-const WebpackPwaManifest = require('webpack-pwa-manifest');
+const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 
 const dist = path.resolve(__dirname, 'dist/');
 const src = path.resolve(__dirname, 'src/');
@@ -45,30 +45,35 @@ module.exports = {
         description: 'A simple password generator',
       },
     }),
-    new WebpackPwaManifest({
-      name: 'PassGen',
-      short_name: 'PassGen',
-      description: 'Just a password generator',
-      background_color: '#ffffff',
-      ios: true,
-      icons: [
-        {
-          src: path.resolve('img/logo_512.png'),
-          sizes: [96, 128, 192, 256, 384, 512],
-          ios: false,
+    new FaviconsWebpackPlugin({
+      logo: './img/logo_1024.png',
+      devMode: 'webapp',
+      favicons: {
+        // https://github.com/itgalaxy/favicons#usage
+        appName: 'PassGen - Simple password generator',
+        appShortName: 'PassGen',
+        appDescription: 'Simple password generator',
+        developerName: null,
+        developerURL: null,
+        lang: 'en-US',
+        background: '#fff',
+        theme_color: '#fff',
+        appleStatusBarStyle: 'default', // "black-translucent", "default", "black"
+        display: 'standalone', // "fullscreen", "standalone", "minimal-ui" or "browser"
+        orientation: 'any', // "any", "natural", "portrait" or "landscape"
+        scope: '/',
+        logging: false,
+        icons: {
+          android: true,
+          appleIcon: true,
+          appleStartup: true,
+          coast: false,
+          favicons: true,
+          firefox: true,
+          windows: true,
+          yandex: false,
         },
-        {
-          src: path.resolve('img/logo_ios_512.png'),
-          sizes: [96, 128, 192, 256, 384, 512],
-          ios: true,
-          purpose: 'maskable',
-        },
-        {
-          src: path.resolve('img/logo_1024.png'),
-          size: 1024,
-          ios: 'startup',
-        },
-      ],
+      },
     }),
     new WorkboxPlugin.InjectManifest({
       swDest: 'service-worker.js',
