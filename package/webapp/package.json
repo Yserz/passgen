@@ -12,7 +12,7 @@
     "redux-logger": "3.0.6",
     "redux-thunk": "2.3.0",
     "url-search-params-polyfill": "8.0.0",
-    "uuid": "3.4.0",
+    "uuid": "7.0.0",
     "workbox-window": "5.0.0"
   },
   "devDependencies": {
