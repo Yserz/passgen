@@ -41,7 +41,7 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       title: 'PassGen',
-      favicon: './img/logo_1024.png',
+      favicon: './img/logo_192.png',
       meta: {
         viewport: 'width=device-width, initial-scale=1.0, user-scalable=no',
         description: 'A simple password generator',
