@@ -40,6 +40,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
+      template: 'template/index.ejs',
       title: 'PassGen',
       favicon: './img/logo_192.png',
       meta: {
