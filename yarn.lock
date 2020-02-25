@@ -12393,10 +12393,10 @@ tslint-plugin-prettier@2.0.1:
     lines-and-columns "^1.1.6"
     tslib "^1.7.1"
 
-tslint-react-hooks@2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/tslint-react-hooks/-/tslint-react-hooks-2.0.0.tgz#452d7eed160420023dc1f26ad3b08ad861fb5d05"
-  integrity sha512-SC0BvRVX+SaSrT/kVcD/xzunBzleeX3TPHX010g9EfXPKLQzyg971VU/j1HnfutvPILDI1Qkhjqseb1+WIBiOw==
+tslint-react-hooks@2.2.1:
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/tslint-react-hooks/-/tslint-react-hooks-2.2.1.tgz#c52c7df65ee1517b2d6c92bc716e9ef72ccdf208"
+  integrity sha512-bqIg2uZe+quJMfSOGc4OOZ4awo6TP1ejGDGS6IKg2WIrS0XnWfhUJ99i3B8rUpnZhuD4vRSvyYIbXPUmEqQxxQ==
 
 tslint-react@4.2.0:
   version "4.2.0"
