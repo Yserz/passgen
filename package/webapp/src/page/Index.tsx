@@ -1,6 +1,6 @@
 import {
-  Box,
   COLOR,
+  Container,
   ContainerSM,
   ContainerXS,
   Content,
@@ -67,49 +67,59 @@ const Index: React.FC<Props & ConnectedProps & DispatchProps> = ({}) => {
           )}
         </ContainerSM>
       </Header>
-      <Content style={{marginBottom: '48px'}}>
-        <ContainerSM verticalCenter>
-          <FlexBox style={{marginTop: '80px'}}>
-            <FlexBox column={true} justify="center" style={{flexGrow: 9, flexBasis: 0, marginRight: '24px'}}>
-              <Small block bold style={{marginBottom: '16px'}}>
-                <label htmlFor="pwLengthInput">{'Password length'}</label>
-              </Small>
-              <Slider
+      <Container centerText>
+        <Content>
+          <ContainerSM verticalCenter>
+            <FlexBox style={{marginTop: '80px'}}>
+              <FlexBox column={true} justify="center" style={{flexGrow: 9, flexBasis: 0, marginRight: '24px'}}>
+                <Small block bold style={{marginBottom: '16px'}}>
+                  <label htmlFor="pwLengthInput">{'Password length'}</label>
+                </Small>
+                <Slider
+                  id="pwLengthInput"
+                  min={MIN_PASSWORD_LENGTH}
+                  max={MAX_PASSWORD_LENGTH}
+                  value={limitedPasswordLength}
+                  onInput={(event: React.ChangeEvent<HTMLInputElement>) => {
+                    setPasswordLength(parseInt(event.target.value, 10));
+                  }}
+                />
+              </FlexBox>
+              <Input
                 id="pwLengthInput"
-                min={MIN_PASSWORD_LENGTH}
-                max={MAX_PASSWORD_LENGTH}
-                value={limitedPasswordLength}
-                onInput={(event: React.ChangeEvent<HTMLInputElement>) => {
-                  setPasswordLength(parseInt(event.target.value, 10));
+                value={passwordLength}
+                onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
+                  const parsedNumber = parseInt(event.target.value, 10);
+                  if (parsedNumber) {
+                    const limitedNumber = Math.min(parsedNumber, MAX_PASSWORD_LENGTH);
+                    setPasswordLength(limitedNumber);
+                  } else {
+                    setPasswordLength('');
+                  }
                 }}
+                style={{flexGrow: 1, flexBasis: 0, marginBottom: 0}}
               />
             </FlexBox>
-            <Input
-              id="pwLengthInput"
-              value={passwordLength}
-              onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
-                const parsedNumber = parseInt(event.target.value, 10);
-                if (parsedNumber) {
-                  const limitedNumber = Math.min(parsedNumber, MAX_PASSWORD_LENGTH);
-                  setPasswordLength(limitedNumber);
-                } else {
-                  setPasswordLength('');
-                }
-              }}
-              style={{flexGrow: 1, flexBasis: 0, marginBottom: 0}}
-            />
-          </FlexBox>
-          <Box
-            onClick={async (event: React.MouseEvent<HTMLDivElement>) => {
-              showToast();
-              await navigator.clipboard.writeText((event.target as any).innerText);
-            }}
-            style={{overflowWrap: 'break-word', marginTop: '56px'}}
-          >
-            {password}
-          </Box>
-        </ContainerSM>
-      </Content>
+          </ContainerSM>
+        </Content>
+        <Container
+          centerText
+          onClick={async (event: React.MouseEvent<HTMLDivElement>) => {
+            showToast();
+            await navigator.clipboard.writeText((event.target as any).innerText);
+          }}
+          style={{
+            cursor: 'pointer',
+            fontFamily: 'monospace',
+            letterSpacing: '.15em',
+            margin: '48px 0',
+            maxWidth: 1024,
+            overflowWrap: 'break-word',
+          }}
+        >
+          {password}
+        </Container>
+      </Container>
       <Footer style={{position: 'fixed', bottom: 0, backgroundColor: COLOR.GRAY_DARKEN_40}}>
         <ContainerXS centerText>
           <Small color={COLOR.WHITE}>{'PassGen'}</Small>
