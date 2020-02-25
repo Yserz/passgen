@@ -1,7 +1,7 @@
 import {
   Box,
   COLOR,
-  ContainerMD,
+  ContainerSM,
   ContainerXS,
   Content,
   FlexBox,
@@ -54,22 +54,21 @@ const Index: React.FC<Props & ConnectedProps & DispatchProps> = ({}) => {
           height: '60px',
           position: 'fixed',
           top: 0,
-          width: '100%',
           zIndex: 99,
         }}
       >
-        <ContainerMD centerText verticalCenter>
+        <ContainerSM centerText verticalCenter>
           {showClipboardToast ? (
-            <Text center color={COLOR.WHITE} style={{margin: 'auto'}}>
+            <Text center color={COLOR.WHITE}>
               {'Password copied!'}
             </Text>
           ) : (
             <img src={'img/logo_192.png'} width={50} alt={'Logo'} style={{display: 'block', margin: 'auto'}} />
           )}
-        </ContainerMD>
+        </ContainerSM>
       </Header>
       <Content style={{marginBottom: '48px'}}>
-        <ContainerXS verticalCenter>
+        <ContainerSM verticalCenter>
           <FlexBox style={{marginTop: '80px'}}>
             <FlexBox column={true} justify="center" style={{flexGrow: 9, flexBasis: 0, marginRight: '24px'}}>
               <Small block bold style={{marginBottom: '16px'}}>
@@ -109,9 +108,9 @@ const Index: React.FC<Props & ConnectedProps & DispatchProps> = ({}) => {
           >
             {password}
           </Box>
-        </ContainerXS>
+        </ContainerSM>
       </Content>
-      <Footer style={{position: 'fixed', bottom: 0, width: '100%', backgroundColor: COLOR.GRAY_DARKEN_40}}>
+      <Footer style={{position: 'fixed', bottom: 0, backgroundColor: COLOR.GRAY_DARKEN_40}}>
         <ContainerXS centerText>
           <Small color={COLOR.WHITE}>{'PassGen'}</Small>
         </ContainerXS>

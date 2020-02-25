@@ -18,6 +18,7 @@ const styledAppContainerStyle: <T>(
   height: '100%',
   minHeight: '100vh',
   transition: 'background 0.15s',
+  width: '100vw',
 });
 
 const filterStyledAppContainerProps = (props: StyledAppContainerProps) =>

@@ -9,6 +9,7 @@ const footerStyle: <T>(theme: Theme, props: FooterProps<T>) => ObjectInterpolati
   display: 'flex',
   height: '40px',
   justifyContent: 'space-between',
+  width: '100%',
 });
 
 const Footer = (props: FooterProps) => <footer css={theme => footerStyle(theme, props)} {...props} />;

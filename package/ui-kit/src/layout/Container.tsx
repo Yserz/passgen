@@ -18,7 +18,7 @@ export interface Level {
   xxs: number;
 }
 
-const LEVEL: Level = {
+const LEVEL_MAX_WIDTH: Level = {
   lg: WIDTH.DESKTOP_MAX,
   md: WIDTH.TABLET_MAX,
   sm: WIDTH.TABLET_MIN,
@@ -32,7 +32,7 @@ const containerStyle: <T>(props: ContainerProps<T>) => ObjectInterpolation<undef
   verticalCenter = false,
 }) => ({
   margin: verticalCenter ? 'auto' : '0 auto',
-  maxWidth: level ? `${LEVEL[level]}px` : undefined,
+  maxWidth: level ? `${LEVEL_MAX_WIDTH[level]}px` : undefined,
   position: 'relative',
   textAlign: centerText ? 'center' : 'left',
   width: '100%',

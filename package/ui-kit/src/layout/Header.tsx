@@ -8,6 +8,7 @@ const headerStyle: <T>(props: HeaderProps<T>) => ObjectInterpolation<undefined> 
   display: 'flex',
   height: '64px',
   justifyContent: 'space-between',
+  width: '100%',
 });
 
 const Header = (props: HeaderProps) => <header css={headerStyle(props)} {...props} />;

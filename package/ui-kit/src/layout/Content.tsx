@@ -9,6 +9,7 @@ const contentStyle: <T>(props: ContentProps<T>) => ObjectInterpolation<undefined
   flexDirection: 'column',
   flexGrow: 1,
   padding: `0 ${GUTTER}px`,
+  width: '100%',
 });
 
 const Content = (props: ContentProps) => <div css={contentStyle(props)} {...props} />;
