@@ -63,7 +63,7 @@
     "karma-jasmine-diff-reporter": "2.0.0",
     "karma-sourcemap-loader": "0.3.7",
     "karma-spec-reporter": "0.0.32",
-    "lint-staged": "8.1.5",
+    "lint-staged": "10.0.8",
     "prettier": "1.19.1",
     "react-hot-loader": "4.12.19",
     "react-test-renderer": "16.12.0",
