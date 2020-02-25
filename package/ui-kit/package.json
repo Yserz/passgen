@@ -41,7 +41,7 @@
   "repository": "https://github.com/Yserz/@passgen/tree/master/packages/ui-kit",
   "scripts": {
     "build": "tsc && babel --config-file ./babel.config.js --extensions .ts,.tsx ./src -d ./dist --source-maps",
-    "build:watch": "yarn build --watch",
+    "watch": "yarn build --watch",
     "clean": "rimraf dist",
     "dist": "yarn clean && yarn build",
     "test": "exit 0"

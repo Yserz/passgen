@@ -14,6 +14,9 @@ const styledAppContainerStyle: <T>(
   props: StyledAppContainerProps<T>,
 ) => ObjectInterpolation<undefined> = (theme, {backgroundColor = theme.general.backgroundColor}) => ({
   background: backgroundColor,
+  display: 'flex',
+  height: '100%',
+  minHeight: '100vh',
   transition: 'background 0.15s',
 });
 

@@ -6,7 +6,7 @@ import {COLOR} from '../identity';
 export type BoxProps<T = HTMLDivElement> = React.HTMLProps<T>;
 
 export const boxStyle: <T>(props: BoxProps<T>) => ObjectInterpolation<undefined> = props => ({
-  border: `2px solid ${COLOR.GRAY_LIGHTEN_72}`,
+  border: `2px solid ${COLOR.GRAY_LIGHTEN_64}`,
   borderRadius: '8px',
   padding: '16px 32px',
 });

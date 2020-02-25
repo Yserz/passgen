@@ -3,6 +3,7 @@ const pkg = require('./package');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const WorkboxPlugin = require('workbox-webpack-plugin');
 const WebpackPwaManifest = require('webpack-pwa-manifest');
+const CopyPlugin = require('copy-webpack-plugin');
 
 const dist = path.resolve(__dirname, 'dist/');
 const src = path.resolve(__dirname, 'src/');
@@ -39,6 +40,7 @@ module.exports = {
     publicPath: '/',
   },
   plugins: [
+    new CopyPlugin([{from: 'img/logo_192.png', to: 'dist/img/logo_192.png'}]),
     new HtmlWebpackPlugin({
       template: 'template/index.ejs',
       title: 'PassGen',
@@ -68,35 +70,6 @@ module.exports = {
           sizes: [57, 60, 72, 76, 114, 120, 144, 152, 167, 180, 1024],
           ios: true,
           purpose: 'maskable',
-        },
-        {
-          src: path.resolve('img/logo_1024.png'),
-          size: [
-            '640x1136',
-            '750x1334',
-            '828x1792',
-            '1125x2436',
-            '1242x2208',
-            '1242x2688',
-            '1536x2048',
-            '1668x2224',
-            '1668x2388',
-            '2048x2732',
-            '1620x2160',
-            // landscape
-            // '1136x640',
-            // '1334x750',
-            // '1792x828',
-            // '2436x1125',
-            // '2208x1242',
-            // '2688x1242',
-            // '2048x1536',
-            // '2224x1668',
-            // '2388x1668',
-            // '2732x2048',
-            // '2160x1620',
-          ],
-          ios: 'startup',
         },
       ],
     }),

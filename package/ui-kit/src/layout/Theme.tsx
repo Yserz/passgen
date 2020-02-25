@@ -27,7 +27,7 @@ export const themes: {[themeId in THEME_ID]: Theme} = {
       placeholderColor: COLOR.GRAY_DARKEN_24,
     },
     general: {
-      backgroundColor: COLOR.GRAY_LIGHTEN_88,
+      backgroundColor: COLOR.GRAY_LIGHTEN_80,
       color: COLOR.TEXT,
     },
   },

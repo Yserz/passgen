@@ -1,7 +1,7 @@
 import {
   Box,
   COLOR,
-  ContainerSM,
+  ContainerMD,
   ContainerXS,
   Content,
   FlexBox,
@@ -47,40 +47,30 @@ const Index: React.FC<Props & ConnectedProps & DispatchProps> = ({}) => {
 
   return (
     <>
-      <Header data-uie-name="element-header" style={{backgroundColor: COLOR.GRAY_LIGHTEN_64}}>
-        <ContainerXS centerText>
-          <h2>{'PassGen'}</h2>
-        </ContainerXS>
+      <Header
+        data-uie-name="element-header"
+        style={{
+          backgroundColor: COLOR.GRAY_DARKEN_40,
+          height: '60px',
+          position: 'fixed',
+          top: 0,
+          width: '100%',
+          zIndex: 99,
+        }}
+      >
+        <ContainerMD centerText verticalCenter>
+          {showClipboardToast ? (
+            <Text center color={COLOR.WHITE} style={{margin: 'auto'}}>
+              {'Password copied!'}
+            </Text>
+          ) : (
+            <img src={'img/logo_192.png'} width={50} alt={'Logo'} style={{display: 'block', margin: 'auto'}} />
+          )}
+        </ContainerMD>
       </Header>
       <Content style={{marginBottom: '48px'}}>
-        <div
-          style={{
-            left: 0,
-            minHeight: '66px', // height + padding
-            paddingTop: '16px',
-            position: 'sticky',
-            right: 0,
-            top: 0,
-            zIndex: 99,
-          }}
-        >
-          {showClipboardToast && (
-            <div
-              style={{
-                backgroundColor: COLOR.GRAY,
-                borderRadius: '8px',
-                display: 'flex',
-                height: '50px',
-              }}
-            >
-              <Text center color={COLOR.WHITE} style={{margin: 'auto'}}>
-                {'Password copied!'}
-              </Text>
-            </div>
-          )}
-        </div>
-        <ContainerSM>
-          <FlexBox align="center" justify="center" style={{marginTop: '72px'}}>
+        <ContainerXS verticalCenter>
+          <FlexBox style={{marginTop: '80px'}}>
             <FlexBox column={true} justify="center" style={{flexGrow: 9, flexBasis: 0, marginRight: '24px'}}>
               <Small block bold style={{marginBottom: '16px'}}>
                 <label htmlFor="pwLengthInput">{'Password length'}</label>
@@ -119,11 +109,11 @@ const Index: React.FC<Props & ConnectedProps & DispatchProps> = ({}) => {
           >
             {password}
           </Box>
-        </ContainerSM>
+        </ContainerXS>
       </Content>
-      <Footer style={{position: 'fixed', bottom: 0, width: '100%', backgroundColor: COLOR.GRAY_LIGHTEN_64}}>
+      <Footer style={{position: 'fixed', bottom: 0, width: '100%', backgroundColor: COLOR.GRAY_DARKEN_40}}>
         <ContainerXS centerText>
-          <Small>{'PassGen'}</Small>
+          <Small color={COLOR.WHITE}>{'PassGen'}</Small>
         </ContainerXS>
       </Footer>
     </>
