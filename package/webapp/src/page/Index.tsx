@@ -63,7 +63,7 @@ const Index: React.FC<Props & ConnectedProps & DispatchProps> = ({}) => {
               {'Password copied!'}
             </Text>
           ) : (
-            <img src={'img/logo_192.png'} width={50} alt={'Logo'} style={{display: 'block', margin: 'auto'}} />
+            <img src={'logo_192.png'} width={50} alt={'Logo'} style={{display: 'block', margin: 'auto'}} />
           )}
         </ContainerSM>
       </Header>
