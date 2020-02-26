@@ -3,7 +3,6 @@ import React from 'react';
 import {COLOR} from '../identity';
 import {Theme} from '../layout';
 import {filterProps} from '../util';
-import {InputProps, filterInputProps, inputStyle} from './Input';
 
 export interface SliderProps<T = HTMLInputElement> {}
 
@@ -13,8 +12,12 @@ const filterSliderProps = (props: Object) => {
 
 const defaultSize = 24;
 const sliderStyle: <T>(theme: Theme, props: SliderProps<T>) => ObjectInterpolation<undefined> = (theme, props) => ({
+  '&::-moz-focus-outer': {
+    border: 0,
+  },
   '&::-moz-range-thumb': {
     background: COLOR.WHITE,
+    border: 0,
     borderRadius: '100%',
     cursor: 'pointer',
     height: `${defaultSize}px`,
@@ -24,6 +27,7 @@ const sliderStyle: <T>(theme: Theme, props: SliderProps<T>) => ObjectInterpolati
     '-webkit-appearance': 'none',
     appearance: 'none',
     background: COLOR.WHITE,
+    border: 0,
     borderRadius: '100%',
     cursor: 'pointer',
     height: `${defaultSize}px`,
