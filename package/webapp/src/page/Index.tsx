@@ -70,9 +70,9 @@ const Index: React.FC<Props & ConnectedProps & DispatchProps> = ({}) => {
       <Container centerText>
         <Content>
           <ContainerSM verticalCenter>
-            <FlexBox style={{marginTop: '80px'}}>
-              <FlexBox column={true} justify="center" style={{flexGrow: 9, flexBasis: 0, marginRight: '24px'}}>
-                <Small block bold style={{marginBottom: '16px'}}>
+            <FlexBox align="center" style={{marginTop: '80px'}}>
+              <FlexBox column={true} justify="center" style={{flexGrow: 17, flexBasis: 0, marginRight: '24px'}}>
+                <Small block bold style={{marginBottom: '8px'}}>
                   <label htmlFor="pwLengthInput">{'Password length'}</label>
                 </Small>
                 <Slider
@@ -97,7 +97,7 @@ const Index: React.FC<Props & ConnectedProps & DispatchProps> = ({}) => {
                     setPasswordLength('');
                   }
                 }}
-                style={{flexGrow: 1, flexBasis: 0, marginBottom: 0}}
+                style={{flexGrow: 3, flexBasis: 0, marginBottom: 0}}
               />
             </FlexBox>
           </ContainerSM>
