@@ -79,7 +79,7 @@ const Index: React.FC<Props & ConnectedProps & DispatchProps> = ({}) => {
               <FlexBox
                 column={true}
                 justify="center"
-                style={{minWidth: 0, flexGrow: 17, flexBasis: 0, marginRight: '24px'}}
+                style={{minWidth: 0, flexGrow: 1, flexBasis: 0, marginRight: '24px'}}
               >
                 <Small block bold style={{marginBottom: '8px'}}>
                   <label htmlFor="pwLengthInput">{'Password length'}</label>
@@ -106,7 +106,7 @@ const Index: React.FC<Props & ConnectedProps & DispatchProps> = ({}) => {
                     setPasswordLength('');
                   }
                 }}
-                style={{minWidth: 0, flexGrow: 3, flexBasis: 0, marginBottom: 0}}
+                style={{minWidth: '70px', flexBasis: 0, marginBottom: 0}}
               />
             </FlexBox>
           </ContainerSM>

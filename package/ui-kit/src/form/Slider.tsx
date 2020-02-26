@@ -34,16 +34,19 @@ const sliderStyle: <T>(theme: Theme, props: SliderProps<T>) => ObjectInterpolati
     width: `${defaultSize}px`,
   },
   '&:focus': {
-    background: COLOR.BLUE_OPAQUE_56,
+    '&::-moz-range-thumb': {
+      border: `2px solid ${COLOR.BLUE_OPAQUE_72}`,
+    },
+    '&::-webkit-slider-thumb': {
+      border: `2px solid ${COLOR.BLUE_OPAQUE_72}`,
+    },
   },
-  '-webkit-appearance': 'none',
   appearance: 'none',
   background: COLOR.GRAY_LIGHTEN_16,
   borderRadius: '16px',
-  boxShadow: 'inset 0px 0px 20px -10px rgba(0,0,0,0.39);',
+  boxShadow: 'inset 0px 0px 10px -4px rgba(0,0,0,0.39);',
   height: `${defaultSize}px`,
   outline: 'none',
-  transition: 'background .2s',
   width: '100%',
 });
 
