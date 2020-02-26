@@ -8,9 +8,11 @@ import {
   Footer,
   Header,
   Input,
+  Link,
   Slider,
   Small,
   Text,
+  TextLink,
 } from '@passgen/ui-kit';
 import {RootState, bindActionCreators} from 'module/reducer';
 import React, {useEffect, useState} from 'react';
@@ -22,6 +24,7 @@ interface Props extends React.HTMLProps<Document> {}
 const Index: React.FC<Props & ConnectedProps & DispatchProps> = ({}) => {
   const MIN_PASSWORD_LENGTH = 8;
   const MAX_PASSWORD_LENGTH = 1024;
+  const GITHUB_URL = 'https://github.com/Yserz/passgen';
 
   const [passwordLength, setPasswordLength] = useState<number | ''>(MIN_PASSWORD_LENGTH);
   const [showClipboardToast, setShowClipboardToast] = useState(false);
@@ -63,7 +66,9 @@ const Index: React.FC<Props & ConnectedProps & DispatchProps> = ({}) => {
               {'Password copied!'}
             </Text>
           ) : (
-            <img src={'logo_192.png'} width={50} alt={'Logo'} style={{display: 'block', margin: 'auto'}} />
+            <Link href={GITHUB_URL} target="_blank">
+              <img src={'logo_192.png'} width={50} alt={'Logo'} style={{display: 'block', margin: 'auto'}} />
+            </Link>
           )}
         </ContainerSM>
       </Header>
@@ -126,7 +131,9 @@ const Index: React.FC<Props & ConnectedProps & DispatchProps> = ({}) => {
       </Container>
       <Footer style={{position: 'fixed', bottom: 0, backgroundColor: COLOR.GRAY_DARKEN_40}}>
         <ContainerXS centerText>
-          <Small color={COLOR.WHITE}>{'PassGen'}</Small>
+          <TextLink color={COLOR.WHITE} fontSize="11px" href={GITHUB_URL} target="_blank">
+            {'PassGen'}
+          </TextLink>
         </ContainerXS>
       </Footer>
     </>

@@ -33,6 +33,9 @@ const sliderStyle: <T>(theme: Theme, props: SliderProps<T>) => ObjectInterpolati
     height: `${defaultSize}px`,
     width: `${defaultSize}px`,
   },
+  '&:focus': {
+    background: COLOR.BLUE_OPAQUE_56,
+  },
   '-webkit-appearance': 'none',
   appearance: 'none',
   background: COLOR.GRAY_LIGHTEN_16,
@@ -40,6 +43,7 @@ const sliderStyle: <T>(theme: Theme, props: SliderProps<T>) => ObjectInterpolati
   boxShadow: 'inset 0px 0px 20px -10px rgba(0,0,0,0.39);',
   height: `${defaultSize}px`,
   outline: 'none',
+  transition: 'background .2s',
   width: '100%',
 });
 
