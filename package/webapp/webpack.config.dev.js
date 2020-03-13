@@ -4,7 +4,7 @@ const webpack = require('webpack');
 
 const src = 'src/';
 
-module.exports = Object.assign(commonConfig, {
+module.exports = {...commonConfig,
   devServer: {
     hot: true,
     hotOnly: true,
@@ -12,14 +12,14 @@ module.exports = Object.assign(commonConfig, {
     overlay: true,
   },
   devtool: 'source-map',
-  entry: Object.assign(commonConfig.entry, {
+  entry: {...commonConfig.entry,
     script: ['react-hot-loader/patch', path.resolve(__dirname, src, 'main.tsx')],
-  }),
+  },
   mode: 'development',
   plugins: [...commonConfig.plugins, new webpack.HotModuleReplacementPlugin(), new webpack.NamedModulesPlugin()],
-  resolve: Object.assign(commonConfig.resolve, {
-    alias: Object.assign(commonConfig.resolve.alias, {
+  resolve: {...commonConfig.resolve,
+    alias: {...commonConfig.resolve.alias,
       'react-dom': '@hot-loader/react-dom',
-    }),
-  }),
+    },
+  },
 });
