@@ -4,7 +4,7 @@ import {COLOR} from '../identity';
 import {Theme} from '../layout';
 import {filterProps} from '../util';
 
-export interface SliderProps<T = HTMLInputElement> {}
+export interface SliderProps<T = HTMLInputElement> extends React.HTMLProps<T> {}
 
 const filterSliderProps = (props: Object) => {
   return filterProps(props, []);

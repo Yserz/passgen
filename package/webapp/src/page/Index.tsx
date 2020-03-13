@@ -1,3 +1,4 @@
+import {MAX_PASSWORD_LENGTH, MIN_PASSWORD_LENGTH} from '@passgen/commons';
 import {
   COLOR,
   Container,
@@ -22,13 +23,11 @@ import {AnyAction, Dispatch} from 'redux';
 interface Props extends React.HTMLProps<Document> {}
 
 const Index: React.FC<Props & ConnectedProps & DispatchProps> = ({}) => {
-  const MIN_PASSWORD_LENGTH = 8;
-  const MAX_PASSWORD_LENGTH = 1024;
   const GITHUB_URL = 'https://github.com/Yserz/passgen';
 
   const [passwordLength, setPasswordLength] = useState<number | ''>(MIN_PASSWORD_LENGTH);
   const [showClipboardToast, setShowClipboardToast] = useState(false);
-  const [password, setPassword] = useState();
+  const [password, setPassword] = useState<string>();
 
   const limitedPasswordLength = Math.max(MIN_PASSWORD_LENGTH, passwordLength || 0);
   useEffect(() => {
@@ -90,8 +89,15 @@ const Index: React.FC<Props & ConnectedProps & DispatchProps> = ({}) => {
                   max={MAX_PASSWORD_LENGTH}
                   value={limitedPasswordLength}
                   onInput={(event: React.ChangeEvent<HTMLInputElement>) => {
-                    setPasswordLength(parseInt(event.target.value, 10));
+                    const parsedNumber = parseInt(event.target.value, 10);
+                    if (parsedNumber) {
+                      const limitedNumber = Math.min(parsedNumber, MAX_PASSWORD_LENGTH);
+                      setPasswordLength(limitedNumber);
+                    } else {
+                      setPasswordLength('');
+                    }
                   }}
+                  data-uie-name="element-password-length-slider"
                 />
               </FlexBox>
               <Input
@@ -107,6 +113,7 @@ const Index: React.FC<Props & ConnectedProps & DispatchProps> = ({}) => {
                   }
                 }}
                 style={{minWidth: '70px', flexBasis: 0, marginBottom: 0}}
+                data-uie-name="element-password-length-input"
               />
             </FlexBox>
           </ContainerSM>
@@ -125,6 +132,7 @@ const Index: React.FC<Props & ConnectedProps & DispatchProps> = ({}) => {
             maxWidth: 1024,
             overflowWrap: 'break-word',
           }}
+          data-uie-name="password-box"
         >
           {password}
         </Container>
