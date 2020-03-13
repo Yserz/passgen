@@ -24,7 +24,6 @@ const sliderStyle: <T>(theme: Theme, props: SliderProps<T>) => ObjectInterpolati
     width: `${defaultSize}px`,
   },
   '&::-webkit-slider-thumb': {
-    '-webkit-appearance': 'none',
     appearance: 'none',
     background: COLOR.WHITE,
     border: 0,
