@@ -1,1 +1,0 @@
-// noop service worker

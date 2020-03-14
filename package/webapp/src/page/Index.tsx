@@ -97,6 +97,7 @@ const Index: React.FC<Props & ConnectedProps & DispatchProps> = ({}) => {
                       setPasswordLength('');
                     }
                   }}
+                  onChange={() => {}}
                   data-uie-name="element-password-length-slider"
                 />
               </FlexBox>

@@ -40,7 +40,7 @@ describe('when visiting the index page', () => {
     );
 
     expect(indexPage.getHeader().exists())
-      .withContext('Header is visible')
+      // .withContext('Header is visible')
       .toBe(true);
   });
 
@@ -52,15 +52,15 @@ describe('when visiting the index page', () => {
     );
 
     expect(indexPage.getPasswordLengthInput().props().value)
-      .withContext('password length input min value')
+      // .withContext('password length input min value')
       .toBe(MIN_PASSWORD_LENGTH);
 
     expect(indexPage.getPasswordLengthSlider().props().value)
-      .withContext('password length slider min value')
+      // .withContext('password length slider min value')
       .toBe(MIN_PASSWORD_LENGTH);
 
     expect(indexPage.getPasswordBox().text().length)
-      .withContext('actual password length')
+      // .withContext('actual password length')
       .toBe(MIN_PASSWORD_LENGTH);
   });
 
@@ -76,13 +76,13 @@ describe('when visiting the index page', () => {
     indexPage.enterPasswordLength(passwordTestLength);
 
     expect(indexPage.getPasswordLengthInput().props().value)
-      .withContext('password length input test value')
+      // .withContext('password length input test value')
       .toBe(passwordTestLength);
     expect(indexPage.getPasswordLengthSlider().props().value)
-      .withContext('password length slider test value')
+      // .withContext('password length slider test value')
       .toBe(passwordTestLength);
     expect(indexPage.getPasswordBox().text().length)
-      .withContext('actual password length')
+      // .withContext('actual password length')
       .toBe(passwordTestLength);
   });
 
@@ -98,13 +98,13 @@ describe('when visiting the index page', () => {
     indexPage.enterPasswordLength(passwordTestLength);
 
     expect(indexPage.getPasswordLengthInput().props().value)
-      .withContext('password length input test value')
+      // .withContext('password length input test value')
       .toBe(MAX_PASSWORD_LENGTH);
     expect(indexPage.getPasswordLengthSlider().props().value)
-      .withContext('password length slider test value')
+      // .withContext('password length slider test value')
       .toBe(MAX_PASSWORD_LENGTH);
     expect(indexPage.getPasswordBox().text().length)
-      .withContext('actual password length')
+      // .withContext('actual password length')
       .toBe(MAX_PASSWORD_LENGTH);
   });
 
@@ -120,13 +120,13 @@ describe('when visiting the index page', () => {
     indexPage.setPasswordLengthSlider(passwordTestLength);
 
     expect(indexPage.getPasswordLengthInput().props().value)
-      .withContext('password length input test value')
+      // .withContext('password length input test value')
       .toBe(passwordTestLength);
     expect(indexPage.getPasswordLengthSlider().props().value)
-      .withContext('password length slider test value')
+      // .withContext('password length slider test value')
       .toBe(passwordTestLength);
     expect(indexPage.getPasswordBox().text().length)
-      .withContext('actual password length')
+      // .withContext('actual password length')
       .toBe(passwordTestLength);
   });
 
@@ -142,13 +142,13 @@ describe('when visiting the index page', () => {
     indexPage.setPasswordLengthSlider(passwordTestLength);
 
     expect(indexPage.getPasswordLengthInput().props().value)
-      .withContext('password length input test value')
+      // .withContext('password length input test value')
       .toBe(MAX_PASSWORD_LENGTH);
     expect(indexPage.getPasswordLengthSlider().props().value)
-      .withContext('password length slider test value')
+      // .withContext('password length slider test value')
       .toBe(MAX_PASSWORD_LENGTH);
     expect(indexPage.getPasswordBox().text().length)
-      .withContext('actual password length')
+      // .withContext('actual password length')
       .toBe(MAX_PASSWORD_LENGTH);
   });
 });
