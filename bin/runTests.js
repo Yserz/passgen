@@ -17,6 +17,7 @@ const updatedProjects = output
 console.info('Building all packages');
 execSync(`yarn dist`, {stdio: [0, 1]});
 
+console.log('Updated projects: ', updatedProjects)
 updatedProjects.forEach(project => {
   console.info(`Running tests for project "${project}"`);
   execSync(`npx lerna run --scope ${project} test`, {stdio: [0, 1]});

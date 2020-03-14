@@ -1,17 +1,15 @@
 const path = require('path');
 const pkg = require('./package');
+const {SRC_PATH, DIST_PATH} = require('./locations');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const WorkboxPlugin = require('workbox-webpack-plugin');
 const WebpackPwaManifest = require('webpack-pwa-manifest');
 const CopyPlugin = require('copy-webpack-plugin');
 
-const dist = path.resolve(__dirname, 'dist/');
-const src = path.resolve(__dirname, 'src/');
-
 module.exports = {
   devtool: 'source-map',
   entry: {
-    script: path.resolve(src, 'main.tsx'),
+    script: path.resolve(SRC_PATH, 'main.tsx'),
   },
   externals: {
     'fs-extra': '{}',
@@ -36,7 +34,7 @@ module.exports = {
   },
   output: {
     filename: '[name].js',
-    path: path.resolve(dist),
+    path: DIST_PATH,
     publicPath: '/',
   },
   plugins: [
@@ -75,7 +73,7 @@ module.exports = {
     }),
     new WorkboxPlugin.InjectManifest({
       swDest: 'service-worker.js',
-      swSrc: path.resolve(src, 'service-worker.js'),
+      swSrc: path.resolve(SRC_PATH, 'service-worker.js'),
       maximumFileSizeToCacheInBytes: process.env.NODE_ENV !== 'production' ? 5000000 : undefined,
     }),
   ],
@@ -84,6 +82,6 @@ module.exports = {
       resource: path.resolve('resource'),
     },
     extensions: ['.js', '.jsx', '.ts', '.tsx', '.svg'],
-    modules: [path.resolve(src), 'node_modules'],
+    modules: [path.resolve(SRC_PATH), 'node_modules'],
   },
 };
