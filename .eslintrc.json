@@ -1,8 +1,8 @@
 {
   "env": {
-    "jasmine": true
+    "jest/globals": true
   },
-  "extends": "./package/eslint-config/eslintrc.json",
+  "extends": ["./package/eslint-config/eslintrc.json", "plugin:jest/recommended"],
   "overrides": [
     {
       "files": ["*.ts", "*.tsx"],
@@ -15,7 +15,7 @@
   "parserOptions": {
     "project": "./tsconfig.json"
   },
-  "plugins": ["jasmine"],
+  "plugins": ["jest"],
   "rules": {
     "id-length": "off",
     "no-dupe-class-members": "off",
