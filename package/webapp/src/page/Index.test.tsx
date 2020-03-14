@@ -1,13 +1,13 @@
 import {MAX_PASSWORD_LENGTH, MIN_PASSWORD_LENGTH, RecursivePartial} from '@passgen/commons';
 import {ReactWrapper} from 'enzyme';
 import {History} from 'history';
+import {Api, RootState, initialRootState} from 'module/reducer';
 import React from 'react';
 import {AnyAction} from 'redux';
 import {MockStoreEnhanced} from 'redux-mock-store';
 import {ThunkDispatch} from 'redux-thunk';
-import {Api, RootState, initialRootState} from '../module/reducer';
-import {mockStoreFactory} from '../util/mockStoreFactory';
-import {mountComponent} from '../util/TestUtil';
+import {mockStoreFactory} from 'util/mockStoreFactory';
+import {mountComponent} from 'util/TestUtil';
 import Index from './Index';
 
 class IndexPage {
