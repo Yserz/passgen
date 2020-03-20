@@ -60,7 +60,7 @@
     "jszip": "3.2.2",
     "lint-staged": "10.0.8",
     "prettier": "1.19.1",
-    "react-hot-loader": "4.12.19",
+    "react-hot-loader": "4.12.20",
     "react-test-renderer": "16.13.1",
     "redux-logger": "3.0.6",
     "redux-mock-store": "1.5.4",
