@@ -57,7 +57,7 @@
     "istanbul-instrumenter-loader": "3.0.1",
     "jasmine": "3.3.1",
     "jest": "25.1.0",
-    "jszip": "3.2.2",
+    "jszip": "3.3.0",
     "lint-staged": "10.0.8",
     "prettier": "1.19.1",
     "react-hot-loader": "4.12.20",
