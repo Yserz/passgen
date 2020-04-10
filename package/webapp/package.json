@@ -59,7 +59,7 @@
     "jest": "25.1.0",
     "jszip": "3.2.2",
     "lint-staged": "10.0.8",
-    "prettier": "1.19.1",
+    "prettier": "2.0.4",
     "react-hot-loader": "4.12.20",
     "react-test-renderer": "16.13.1",
     "redux-logger": "3.0.6",
