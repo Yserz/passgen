@@ -68,7 +68,7 @@
     "rimraf": "2.6.3",
     "svg-inline-loader": "0.8.2",
     "terser-webpack-plugin": "2.3.5",
-    "ts-jest": "25.2.1",
+    "ts-jest": "25.4.0",
     "tslint": "6.1.0",
     "tslint-config-prettier": "1.18.0",
     "tslint-eslint-rules": "5.4.0",
