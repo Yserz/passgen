@@ -20,7 +20,7 @@
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "rimraf": "2.6.3",
-    "typescript": "3.8.3",
+    "typescript": "3.9.2",
     "webpack-env": "0.8.0"
   },
   "peerDependencies": {
