@@ -4,7 +4,7 @@
     "@passgen/commons": "0.0.1",
     "@passgen/ui-kit": "0.0.1",
     "babel-plugin-remove-jsx-attributes": "0.0.2",
-    "core-js": "3.6.4",
+    "core-js": "3.7.0",
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-redux": "7.2.0",
