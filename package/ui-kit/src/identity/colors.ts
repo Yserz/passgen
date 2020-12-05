@@ -10,15 +10,11 @@ for (let index = 8; index < percent; index += 8) {
 }
 
 function shade(color: ColorParam, amount = 0.08) {
-  return Color(color)
-    .mix(Color(BLACK), amount)
-    .toString();
+  return Color(color).mix(Color(BLACK), amount).toString();
 }
 
 function tint(color: ColorParam, amount: number) {
-  return Color(color)
-    .mix(Color(WHITE), amount)
-    .toString();
+  return Color(color).mix(Color(WHITE), amount).toString();
 }
 
 function opaque(color: ColorParam, amount: number) {
