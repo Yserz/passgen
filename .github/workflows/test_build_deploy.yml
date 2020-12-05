@@ -1,0 +1,80 @@
+name: Test, Build & Deploy
+
+on:
+  push:
+    branches: [dev, master]
+  pull_request:
+    branches: [dev, master]
+
+jobs:
+  test_build_deploy:
+    runs-on: ubuntu-latest
+
+    env:
+      TEST_COVERAGE_FAIL_THRESHOLD: 60
+      TEST_COVERAGE_WARNING_THRESHOLD: 65
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Set environment variables
+        run: |
+          echo "BRANCH_NAME=$(git branch --show-current)" >> $GITHUB_ENV
+          echo "TAG=$(git tag --points-at ${{github.sha}})" >> $GITHUB_ENV
+          echo "COMMIT_MESSAGE=$(git log --format=%B -n 1 ${{github.event.after}} | head -n 1)" >> $GITHUB_ENV
+
+      - name: Set TITLE
+        env:
+          PR_TITLE: ${{github.event.pull_request.title || env.COMMIT_MESSAGE}}
+        run: echo "TITLE=$PR_TITLE" >> $GITHUB_ENV
+
+      - name: Print environment variables
+        env:
+          GITHUB_CONTEXT: ${{toJson(github)}}
+        run: |
+          echo -e "BRANCH_NAME = ${BRANCH_NAME}"
+          echo -e "TAG = ${TAG}"
+          echo -e "TITLE = ${TITLE}"
+          echo -e "COMMIT_MESSAGE = ${COMMIT_MESSAGE}"
+          echo -e "GITHUB_CONTEXT = ${GITHUB_CONTEXT}"
+
+      - name: Skip CI
+        if: contains(env.TITLE || env.COMMIT_MESSAGE, '[skip ci]') || contains(env.TITLE || env.COMMIT_MESSAGE, '[ci skip]')
+        uses: andymckay/cancel-action@0.2
+
+      - name: Cancel Previous Runs
+        uses: styfle/cancel-workflow-action@0.5.0
+        with:
+          access_token: ${{github.token}}
+
+      - name: Yarn cache
+        uses: c-hive/gha-yarn-cache@v1
+
+      - name: Install JS dependencies
+        run: yarn --frozen-lockfile
+
+      - name: Test
+        run: yarn test
+
+      - name: Monitor coverage
+        if: github.event_name == 'pull_request'
+        uses: slavcodev/coverage-monitor-action@1.1.0
+        with:
+          github_token: ${{github.token}}
+          clover_file: 'package/webapp/coverage/clover.xml'
+          threshold_alert: ${{env.TEST_COVERAGE_FAIL_THRESHOLD}}
+          threshold_warning: ${{env.TEST_COVERAGE_WARNING_THRESHOLD}}
+
+      - name: Create GitHub release draft
+        id: create_release
+        if: env.TAG != ''
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{github.token}}
+        with:
+          tag_name: ${{env.TAG}}
+          release_name: ${{env.TAG}}
+          body_path: ./CHANGELOG.md
+          draft: true
+          prerelease: false

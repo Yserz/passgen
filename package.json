@@ -47,8 +47,8 @@
     "postversion": "git push && git push --tags",
     "preversion": "yarn test",
     "release": "lerna publish",
-    "test": "yarn && yarn lint && node bin/runTests.js",
-    "test:all": "yarn && yarn dist && yarn lint && lerna run test"
+    "test": "node bin/runTests.js",
+    "test:all": "lerna run test"
   },
   "workspaces": {
     "packages": [
