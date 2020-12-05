@@ -55,7 +55,7 @@ jobs:
         run: yarn --frozen-lockfile
 
       - name: Test
-        run: yarn test:all
+        run: yarn test
 
       - name: Monitor coverage
         if: github.event_name == 'pull_request'
