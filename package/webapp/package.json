@@ -16,7 +16,7 @@
     "regenerator-runtime": "0.13.7",
     "url-search-params-polyfill": "8.0.0",
     "uuid": "7.0.2",
-    "workbox-window": "5.0.0"
+    "workbox-window": "6.0.2"
   },
   "devDependencies": {
     "@babel/core": "7.12.9",
