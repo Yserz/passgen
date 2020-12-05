@@ -2,7 +2,7 @@
   "dependencies": {
     "@passgen/ui-kit": "0.0.1",
     "react": "16.14.0",
-    "react-dom": "16.13.1"
+    "react-dom": "16.14.0"
   },
   "devDependencies": {
     "@babel/cli": "7.12.8",
