@@ -115,7 +115,7 @@
     "dist:staging": "cross-env-shell BABEL_ENV=development NODE_ENV=production yarn clear && yarn webpack",
     "clear": "rimraf dist",
     "start": "webpack-dev-server --config webpack.config.dev.js",
-    "test": "yarn test:types && yarn jest --collect-coverage",
+    "test": "yarn test:types && yarn jest --coverage",
     "test:types": "tsc --noEmit"
   },
   "version": "0.0.1"
