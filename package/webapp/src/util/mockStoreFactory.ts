@@ -1,4 +1,3 @@
-const {createLogger} = require('redux-logger');
 import {RecursivePartial} from '@passgen/commons';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
@@ -24,23 +23,6 @@ export const mockStoreFactory = (
     thunk.withExtraArgument({
       actions,
       localStorage,
-    }),
-    createLogger({
-      actionTransformer(action: any): string {
-        return JSON.stringify(action);
-      },
-      colors: {
-        action: false,
-        error: false,
-        nextState: false,
-        prevState: false,
-        title: false,
-      },
-      level: {
-        action: 'info',
-        nextState: false,
-        prevState: false,
-      },
     }),
   ]);
 };
