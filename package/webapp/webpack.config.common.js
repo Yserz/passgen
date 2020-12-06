@@ -41,7 +41,7 @@ module.exports = {
     publicPath: '/',
   },
   plugins: [
-    new CopyPlugin([{from: 'img/logo_192.png', to: 'dist/logo_192.png'}]),
+    new CopyPlugin({patterns: [{from: 'img/logo_192.png', to: 'dist/logo_192.png'}]}),
     new HtmlWebpackPlugin({
       template: 'template/index.ejs',
       title: 'PassGen',
