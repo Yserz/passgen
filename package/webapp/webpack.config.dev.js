@@ -15,6 +15,6 @@ module.exports = {
   devtool: 'source-map',
   entry: {...commonConfig.entry, script: ['react-hot-loader/patch', path.resolve(__dirname, src, 'main.tsx')]},
   mode: 'development',
-  plugins: [...commonConfig.plugins, new webpack.HotModuleReplacementPlugin(), new webpack.NamedModulesPlugin()],
+  plugins: [...commonConfig.plugins, new webpack.HotModuleReplacementPlugin()],
   resolve: {...commonConfig.resolve, alias: {...commonConfig.resolve.alias, 'react-dom': '@hot-loader/react-dom'}},
 };
