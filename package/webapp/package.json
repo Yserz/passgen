@@ -53,7 +53,7 @@
     "eslint-plugin-react": "7.21.5",
     "generate-changelog": "1.7.1",
     "html-webpack-plugin": "4.5.0",
-    "husky": "4.3.0",
+    "husky": "4.3.4",
     "istanbul-instrumenter-loader": "3.0.1",
     "jasmine": "3.6.3",
     "jest": "26.6.3",
