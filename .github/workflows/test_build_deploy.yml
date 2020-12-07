@@ -67,7 +67,6 @@ jobs:
           threshold_warning: ${{env.TEST_COVERAGE_WARNING_THRESHOLD}}
 
       - name: Codecov
-        if: github.event_name == 'pull_request'
         run: bash <(curl -s https://codecov.io/bash) -f ./package/webapp/coverage/lcov.info
 
       - name: Create GitHub release draft
