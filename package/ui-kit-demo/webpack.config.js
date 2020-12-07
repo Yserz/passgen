@@ -33,7 +33,6 @@ module.exports = {
       title: pkg.title,
     }),
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NamedModulesPlugin(),
   ],
   resolve: {
     alias: {
