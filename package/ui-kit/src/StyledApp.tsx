@@ -1,7 +1,7 @@
 /** @jsx jsx */
-import {ObjectInterpolation, jsx} from '@emotion/core';
+import {CSSObject, jsx, Theme} from '@emotion/react';
 import {GlobalStyle} from './GlobalStyle';
-import {THEME_ID, Theme, ThemeProvider} from './layout/Theme';
+import {THEME_ID, ThemeProvider} from './layout/Theme';
 import {filterProps} from './util';
 
 export interface StyledAppContainerProps<T = HTMLDivElement> extends React.HTMLProps<T> {
@@ -9,10 +9,10 @@ export interface StyledAppContainerProps<T = HTMLDivElement> extends React.HTMLP
   themeId?: THEME_ID;
 }
 
-const styledAppContainerStyle: <T>(
-  theme: Theme,
-  props: StyledAppContainerProps<T>,
-) => ObjectInterpolation<undefined> = (theme, {backgroundColor = theme.general.backgroundColor}) => ({
+const styledAppContainerStyle: <T>(theme: Theme, props: StyledAppContainerProps<T>) => CSSObject = (
+  theme,
+  {backgroundColor = theme.general.backgroundColor},
+) => ({
   background: backgroundColor,
   display: 'flex',
   height: '100%',

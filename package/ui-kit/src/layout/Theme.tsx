@@ -1,6 +1,5 @@
 /** @jsx jsx */
-import {jsx} from '@emotion/core';
-import {ThemeProvider as EmotionThemeProvider} from 'emotion-theming';
+import {jsx, Theme, ThemeProvider as EmotionThemeProvider} from '@emotion/react';
 import {COLOR} from '../identity/colors';
 import {filterProps} from '../util';
 
@@ -9,15 +8,18 @@ export enum THEME_ID {
   DARK = 'THEME_DARK',
 }
 
-export interface Theme {
-  Input: {
-    placeholderColor: string;
-    backgroundColor: string;
-  };
-  general: {
-    backgroundColor: string;
-    color: string;
-  };
+// Apply custom theme to Emotion so TypeScript can pick it up in the css prop
+declare module '@emotion/react' {
+  export interface Theme {
+    Input: {
+      placeholderColor: string;
+      backgroundColor: string;
+    };
+    general: {
+      backgroundColor: string;
+      color: string;
+    };
+  }
 }
 
 export const themes: {[themeId in THEME_ID]: Theme} = {
@@ -49,6 +51,4 @@ export interface ThemeProps<T = HTMLDivElement> extends React.HTMLProps<T> {
 
 const filterThemeProps = (props: ThemeProps) => filterProps(props, ['themeId']);
 
-export const ThemeProvider = (props: ThemeProps) => (
-  <EmotionThemeProvider theme={themes[props.themeId]} {...filterThemeProps(props)} />
-);
+export const ThemeProvider = (props: ThemeProps) => <div {...filterThemeProps(props)} />;

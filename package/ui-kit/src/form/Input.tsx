@@ -1,9 +1,8 @@
 /** @jsx jsx */
-import {ObjectInterpolation, jsx} from '@emotion/core';
+import {CSSObject, jsx, Theme} from '@emotion/react';
 import {Property} from 'csstype';
 import React from 'react';
 import {COLOR} from '../identity';
-import {Theme} from '../layout';
 import {TextProps} from '../typography';
 import {filterProps} from '../util';
 
@@ -12,7 +11,7 @@ export interface InputProps<T = HTMLInputElement> extends TextProps<T> {
   placeholderTextTransform?: Property.TextTransform;
 }
 
-export const inputStyle: <T>(theme: Theme, props: InputProps<T>) => ObjectInterpolation<undefined> = (
+export const inputStyle: <T>(theme: Theme, props: InputProps<T>) => CSSObject = (
   theme,
   {markInvalid = false, placeholderTextTransform = 'uppercase', disabled = false},
 ) => {

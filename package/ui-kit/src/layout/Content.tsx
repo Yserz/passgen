@@ -1,10 +1,11 @@
-import {ObjectInterpolation} from '@emotion/core';
+/** @jsx jsx */
+import {jsx, CSSObject} from '@emotion/react';
 import React from 'react';
 import {GUTTER} from './sizes';
 
 export interface ContentProps<T = HTMLDivElement> extends React.HTMLProps<T> {}
 
-const contentStyle: <T>(props: ContentProps<T>) => ObjectInterpolation<undefined> = props => ({
+const contentStyle: <T>(props: ContentProps<T>) => CSSObject = props => ({
   display: 'flex',
   flexDirection: 'column',
   flexGrow: 1,

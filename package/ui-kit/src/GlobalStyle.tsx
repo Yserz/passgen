@@ -1,11 +1,10 @@
 /** @jsx jsx */
-import {Global, ObjectInterpolation, css, jsx} from '@emotion/core';
+import {Global, CSSObject, css, jsx, Theme, useTheme} from '@emotion/react';
 import emotionNormalize from 'emotion-normalize';
-import {withTheme} from 'emotion-theming';
-import {Theme} from './layout';
 import {textLinkStyle} from './typography/TextLink';
+import {themes} from './layout';
 
-const globalStyles: (theme: Theme) => ObjectInterpolation<undefined> = theme => ({
+const globalStyles: (theme: Theme) => CSSObject = theme => ({
   '*': {
     boxSizing: 'border-box',
   },
@@ -42,6 +41,7 @@ const globalStyle = (theme: Theme) => css`
   ${globalStyles(theme)}
 `;
 
-export const GlobalStyle = withTheme(({theme}) => {
+export const GlobalStyle = () => {
+  const theme = useTheme();
   return <Global styles={globalStyle(theme)} />;
-});
+};

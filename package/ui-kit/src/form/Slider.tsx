@@ -1,7 +1,7 @@
-import {ObjectInterpolation} from '@emotion/core';
+/** @jsx jsx */
+import {jsx, CSSObject, Theme} from '@emotion/react';
 import React from 'react';
 import {COLOR} from '../identity';
-import {Theme} from '../layout';
 import {filterProps} from '../util';
 
 export interface SliderProps<T = HTMLInputElement> extends React.HTMLProps<T> {}
@@ -11,7 +11,7 @@ const filterSliderProps = (props: Object) => {
 };
 
 const defaultSize = 24;
-const sliderStyle: <T>(theme: Theme, props: SliderProps<T>) => ObjectInterpolation<undefined> = (theme, props) => ({
+const sliderStyle: <T>(theme: Theme, props: SliderProps<T>) => CSSObject = (theme, props) => ({
   '&::-moz-focus-outer': {
     border: 0,
   },

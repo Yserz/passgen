@@ -1,9 +1,10 @@
-import {ObjectInterpolation} from '@emotion/core';
+/** @jsx jsx */
+import {jsx, CSSObject} from '@emotion/react';
 import React from 'react';
 
 export interface HeaderProps<T = HTMLHeadingElement> extends React.HTMLProps<T> {}
 
-const headerStyle: <T>(props: HeaderProps<T>) => ObjectInterpolation<undefined> = props => ({
+const headerStyle: <T>(props: HeaderProps<T>) => CSSObject = props => ({
   alignItems: 'center',
   display: 'flex',
   height: '64px',
