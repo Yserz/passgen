@@ -82,9 +82,6 @@ module.exports = {
   ],
   resolve: {
     alias: {
-      // Needed until libs have support for emotion v11
-      // https://github.com/infinum/emotion-normalize/pull/12
-      // '@emotion/core': '@emotion/react',
       resource: path.resolve('resource'),
     },
     extensions: ['.js', '.jsx', '.ts', '.tsx', '.svg'],
