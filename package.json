@@ -28,7 +28,7 @@
       "eslint --fix"
     ],
     "*.{json,md,scss,yml}": [
-      "prettier --write"
+      "prettier --write --config ./.prettierrc.js"
     ]
   },
   "prettier": "./package/prettier-config",
@@ -42,7 +42,7 @@
     "fix:other": "yarn prettier --write",
     "lint": "yarn lint:code && yarn lint:other",
     "lint:code": "eslint --ignore-path .gitignore --ext .js,.jsx,.ts,.tsx .",
-    "lint:other": "yarn prettier --list-different",
+    "lint:other": "yarn prettier --list-different --config ./.prettierrc.js",
     "prettier": "prettier \"**/*.{json,md}\"",
     "postversion": "git push && git push --tags",
     "preversion": "yarn test",
