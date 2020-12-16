@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import {ObjectInterpolation, jsx} from '@emotion/core';
+import {CSSObject, jsx} from '@emotion/core';
 import {Property} from 'csstype';
 import {Theme} from '../layout/';
 import {filterProps} from '../util';
@@ -32,7 +32,7 @@ export const filterTextProps = (props: TextProps) => {
   ]);
 };
 
-export const textStyle: <T>(theme: Theme, props: TextProps<T>) => ObjectInterpolation<undefined> = (
+export const textStyle: <T>(theme: Theme, props: TextProps<T>) => CSSObject = (
   theme,
   {
     block = false,
