@@ -1,4 +1,4 @@
-import {ObjectInterpolation} from '@emotion/core';
+import {CSSObject} from '@emotion/core';
 import React from 'react';
 import {filterProps} from '../util';
 import media, {QueryKeys} from './mediaQueries';
@@ -26,7 +26,7 @@ const LEVEL_MAX_WIDTH: Level = {
   xxs: WIDTH.TINY,
 };
 
-const containerStyle: <T>(props: ContainerProps<T>) => ObjectInterpolation<undefined> = ({
+const containerStyle: <T>(props: ContainerProps<T>) => CSSObject = ({
   centerText = false,
   level = undefined,
   verticalCenter = false,

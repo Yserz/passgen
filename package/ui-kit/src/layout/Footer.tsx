@@ -1,10 +1,10 @@
-import {ObjectInterpolation} from '@emotion/core';
+import {CSSObject} from '@emotion/core';
 import React from 'react';
 import {Theme} from './Theme';
 
 interface FooterProps<T = HTMLElement> extends React.HTMLProps<HTMLElement> {}
 
-const footerStyle: <T>(theme: Theme, props: FooterProps<T>) => ObjectInterpolation<undefined> = (theme, props) => ({
+const footerStyle: <T>(theme: Theme, props: FooterProps<T>) => CSSObject = (theme, props) => ({
   alignItems: 'center',
   display: 'flex',
   height: '40px',

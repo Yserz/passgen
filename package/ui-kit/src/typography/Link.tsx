@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import {ObjectInterpolation, jsx} from '@emotion/core';
+import {CSSObject, jsx} from '@emotion/core';
 import Color from 'color';
 import {COLOR} from '../identity/colors';
 import {defaultTransition} from '../identity/motions';
@@ -9,7 +9,7 @@ import {TextProps, filterTextProps, textStyle} from './Text';
 
 export interface LinkProps<T = HTMLAnchorElement> extends TextProps<T> {}
 
-export const linkStyle: <T>(theme: Theme, props: LinkProps<T>) => ObjectInterpolation<undefined> = (
+export const linkStyle: <T>(theme: Theme, props: LinkProps<T>) => CSSObject = (
   theme,
   {bold = true, color = theme.general.color, fontSize = '11px', textTransform = 'uppercase', ...props},
 ) => {

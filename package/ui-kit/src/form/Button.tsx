@@ -1,4 +1,4 @@
-import {ObjectInterpolation} from '@emotion/core';
+import {CSSObject} from '@emotion/core';
 import React from 'react';
 import {COLOR, defaultTransition} from '../identity';
 import {Theme} from '../layout';
@@ -17,7 +17,7 @@ const filterButtonLinkProps = (props: Object) => {
   return filterProps(filterTextProps(props), ['backgroundColor', 'disabled', 'noCapital']);
 };
 
-const buttonStyle: <T>(theme: Theme, props: ButtonProps<T>) => ObjectInterpolation<undefined> = (
+const buttonStyle: <T>(theme: Theme, props: ButtonProps<T>) => CSSObject = (
   theme,
   {
     backgroundColor = COLOR.BLUE,
@@ -67,10 +67,7 @@ const buttonStyle: <T>(theme: Theme, props: ButtonProps<T>) => ObjectInterpolati
   width: block ? '100%' : 'auto',
 });
 
-const buttonLinkStyle: (theme: Theme, props: ButtonProps<HTMLAnchorElement>) => ObjectInterpolation<undefined> = (
-  theme,
-  props,
-) => ({
+const buttonLinkStyle: (theme: Theme, props: ButtonProps<HTMLAnchorElement>) => CSSObject = (theme, props) => ({
   ...buttonStyle(theme, props),
   display: 'inline-block !important',
 });
