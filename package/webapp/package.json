@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "@babel/polyfill": "7.12.1",
+    "@emotion/react": "11.1.2",
     "@passgen/commons": "0.0.1",
     "@passgen/ui-kit": "0.0.1",
     "babel-plugin-remove-jsx-attributes": "0.0.2",
