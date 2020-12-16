@@ -10,9 +10,6 @@
     "outDir": "dist",
     "rootDirs": ["src"],
     "target": "es6"
-    // "paths": {
-    //   "@emotion/core": ["node_modules/@emotion/react"],
-    // }
   },
   "exclude": ["node_modules", "dist"],
   "extends": "../../tsconfig.json"
