@@ -1,4 +1,5 @@
-import {CSSObject} from '@emotion/core';
+/** @jsx jsx */
+import {jsx, CSSObject} from '@emotion/react';
 import {Property} from 'csstype';
 import React from 'react';
 import {filterProps} from '../util';

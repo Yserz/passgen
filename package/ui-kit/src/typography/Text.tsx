@@ -1,7 +1,6 @@
 /** @jsx jsx */
-import {CSSObject, jsx} from '@emotion/core';
+import {CSSObject, jsx, Theme} from '@emotion/react';
 import {Property} from 'csstype';
-import {Theme} from '../layout/';
 import {filterProps} from '../util';
 
 export interface TextProps<T = HTMLSpanElement> extends React.HTMLProps<T> {

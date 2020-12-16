@@ -1,7 +1,7 @@
 /** @jsx jsx */
-import {CSSObject, jsx} from '@emotion/core';
+import {CSSObject, jsx, Theme} from '@emotion/react';
 import {GlobalStyle} from './GlobalStyle';
-import {THEME_ID, Theme, ThemeProvider} from './layout/Theme';
+import {THEME_ID, ThemeProvider} from './layout/Theme';
 import {filterProps} from './util';
 
 export interface StyledAppContainerProps<T = HTMLDivElement> extends React.HTMLProps<T> {

@@ -1,9 +1,8 @@
 /** @jsx jsx */
-import {CSSObject, jsx} from '@emotion/core';
+import {CSSObject, jsx, Theme} from '@emotion/react';
 import Color from 'color';
 import {COLOR} from '../identity/colors';
 import {defaultTransition} from '../identity/motions';
-import {Theme} from '../layout';
 import {filterProps} from '../util';
 import {TextProps, filterTextProps, textStyle} from './Text';
 

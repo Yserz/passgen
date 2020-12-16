@@ -1,4 +1,5 @@
-import {CSSObject} from '@emotion/core';
+/** @jsx jsx */
+import {jsx, CSSObject} from '@emotion/react';
 import React from 'react';
 import media, {QueryKeys} from './mediaQueries';
 import {GUTTER} from './sizes';

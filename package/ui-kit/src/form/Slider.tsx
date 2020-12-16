@@ -1,7 +1,7 @@
-import {CSSObject} from '@emotion/core';
+/** @jsx jsx */
+import {jsx, CSSObject, Theme} from '@emotion/react';
 import React from 'react';
 import {COLOR} from '../identity';
-import {Theme} from '../layout';
 import {filterProps} from '../util';
 
 export interface SliderProps<T = HTMLInputElement> extends React.HTMLProps<T> {}

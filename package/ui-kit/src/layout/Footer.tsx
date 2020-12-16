@@ -1,6 +1,6 @@
-import {CSSObject} from '@emotion/core';
+/** @jsx jsx */
+import {jsx, CSSObject, Theme} from '@emotion/react';
 import React from 'react';
-import {Theme} from './Theme';
 
 interface FooterProps<T = HTMLElement> extends React.HTMLProps<HTMLElement> {}
 

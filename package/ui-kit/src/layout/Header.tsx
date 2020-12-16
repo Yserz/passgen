@@ -1,4 +1,5 @@
-import {CSSObject} from '@emotion/core';
+/** @jsx jsx */
+import {jsx, CSSObject} from '@emotion/react';
 import React from 'react';
 
 export interface HeaderProps<T = HTMLHeadingElement> extends React.HTMLProps<T> {}
