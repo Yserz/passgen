@@ -14,7 +14,7 @@
     "@hot-loader/react-dom": "17.0.1",
     "@types/react-helmet": "6.1.1",
     "@types/react": "17.0.9",
-    "@types/react-dom": "17.0.5",
+    "@types/react-dom": "17.0.6",
     "@types/webpack-env": "1.16.0",
     "babel-loader": "8.2.2",
     "babel-plugin-emotion": "11.0.0",
