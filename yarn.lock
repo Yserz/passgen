@@ -2884,10 +2884,10 @@
   resolved "https://registry.yarnpkg.com/@types/webpack-env/-/webpack-env-1.16.2.tgz#8db514b059c1b2ae14ce9d7bb325296de6a9a0fa"
   integrity sha512-vKx7WNQNZDyJveYcHAm9ZxhqSGLYwoyLhrHjLBOkw3a7cT76sTdjgtwyijhk1MaHyRIuSztcVwrUOO/NEu68Dw==
 
-"@types/workbox-window@4.3.3":
-  version "4.3.3"
-  resolved "https://registry.yarnpkg.com/@types/workbox-window/-/workbox-window-4.3.3.tgz#47f91df7ce7eea5c151a6beb3e8398c7db8ee538"
-  integrity sha512-iIq2obSq3gvzhwFxg+/02v4VqfHjRg9hpEjoM68TKYcmCAe9QGlFsJ5qPZkJKUuZDVW7cUoR3iiA2jIALFU6Ag==
+"@types/workbox-window@4.3.4":
+  version "4.3.4"
+  resolved "https://registry.yarnpkg.com/@types/workbox-window/-/workbox-window-4.3.4.tgz#701e2c612cbdbe2e2960e7fc9743b7bc2110f01f"
+  integrity sha512-Zyac7JfCO1iWLeHxC/hwJ132nXta/x0hl1kERdvHSUU2qVgQ7slmF9C0xhzWADRu7XO4v9+po9xtGD4yonlzyA==
 
 "@types/yargs-parser@*":
   version "15.0.0"
