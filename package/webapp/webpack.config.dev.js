@@ -8,9 +8,7 @@ module.exports = {
   ...commonConfig,
   devServer: {
     hot: true,
-    hotOnly: true,
     open: true,
-    overlay: true,
   },
   devtool: 'source-map',
   entry: {...commonConfig.entry, script: ['react-hot-loader/patch', path.resolve(__dirname, src, 'main.tsx')]},
