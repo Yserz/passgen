@@ -20,7 +20,7 @@
     "prettier": "2.4.1"
   },
   "engines": {
-    "node": ">= 10.9",
+    "node": ">= 14.17",
     "yarn": ">= 1"
   },
   "lint-staged": {
