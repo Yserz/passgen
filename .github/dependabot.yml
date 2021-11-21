@@ -19,6 +19,3 @@ updates:
       - dependency-name: '@emotion/babel-preset-css-prop'
         versions:
           - 11.0.0
-      - dependency-name: husky
-        versions:
-          - '>= 5.a'
