@@ -35,7 +35,7 @@ export function successfulLogout() {
   return {type: LOGOUT_SUCCESS};
 }
 
-export function failedLogout(error: Error) {
+export function failedLogout(error: any) {
   return {
     payload: error,
     type: LOGOUT_FAILED,

@@ -32,7 +32,7 @@ const registerServiceWorker = async (): Promise<void> => {
       const registration = await workbox.register();
       console.log('Successfully registered service worker', registration);
     } catch (error) {
-      console.error('Failed to register service worker', error && error.message);
+      console.error('Failed to register service worker', error && (error as Error).message);
     }
   }
 };
