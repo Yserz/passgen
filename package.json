@@ -14,7 +14,7 @@
     "eslint-plugin-react-hooks": "4.3.0",
     "eslint-plugin-simple-import-sort": "7.0.0",
     "eslint-plugin-sort-keys-fix": "1.1.2",
-    "husky": "4.3.8",
+    "husky": "7.0.4",
     "lerna": "4.0.0",
     "lint-staged": "12.1.1",
     "prettier": "2.4.1"
@@ -25,7 +25,7 @@
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
-      "eslint --fix"
+      "eslint --cache --fix"
     ],
     "*.{json,md,scss,yml}": [
       "prettier --write --config ./.prettierrc.js"
@@ -48,7 +48,8 @@
     "preversion": "yarn test",
     "release": "lerna publish",
     "test": "node bin/runTests.js",
-    "test:all": "lerna run test"
+    "test:all": "lerna run test",
+    "prepare": "husky install"
   },
   "workspaces": {
     "packages": [

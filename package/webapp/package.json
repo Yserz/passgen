@@ -53,7 +53,6 @@
     "generate-changelog": "1.7.1",
     "html-webpack-plugin": "5.5.0",
     "jest": "26.6.3",
-    "lint-staged": "12.1.1",
     "prettier": "2.4.1",
     "react-hot-loader": "4.13.0",
     "react-test-renderer": "17.0.2",
@@ -78,12 +77,9 @@
   },
   "lint-staged": {
     "*.js": [
-      "eslint -c .eslintrc.yaml --fix"
+      "eslint -c .eslintrc.yaml --cache --fix"
     ],
-    "*.json": [
-      "prettier --write"
-    ],
-    "*.md": [
+    "*.{md,json}": [
       "prettier --write"
     ],
     "src/script/**/*.{ts,tsx}": [
