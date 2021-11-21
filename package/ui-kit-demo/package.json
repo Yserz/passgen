@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "@passgen/ui-kit": "0.0.1",
+    "@passgen/ui-kit": "0.1.0",
     "react": "17.0.2",
     "react-dom": "17.0.2"
   },
@@ -12,9 +12,9 @@
     "@babel/preset-react": "7.16.0",
     "@babel/preset-typescript": "7.16.0",
     "@hot-loader/react-dom": "17.0.1",
-    "@types/react-helmet": "6.1.4",
     "@types/react": "17.0.36",
     "@types/react-dom": "17.0.11",
+    "@types/react-helmet": "6.1.4",
     "@types/webpack-env": "1.16.3",
     "babel-loader": "8.2.3",
     "babel-plugin-emotion": "11.0.0",
@@ -40,5 +40,5 @@
     "test:types": "tsc",
     "start": "webpack-dev-server"
   },
-  "version": "0.0.1"
+  "version": "0.1.0"
 }

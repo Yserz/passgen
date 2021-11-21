@@ -16,5 +16,5 @@
     "prettier": ">=1.19"
   },
   "repository": "https://github.com/Yserz/passgen/tree/master/package/eslint-config",
-  "version": "0.1.0"
+  "version": "0.1.1"
 }

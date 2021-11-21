@@ -1,8 +1,8 @@
 {
   "dependencies": {
     "@babel/polyfill": "7.12.1",
-    "@passgen/commons": "0.0.1",
-    "@passgen/ui-kit": "0.0.1",
+    "@passgen/commons": "0.0.2",
+    "@passgen/ui-kit": "0.1.0",
     "babel-plugin-remove-jsx-attributes": "0.0.2",
     "core-js": "3.19.1",
     "react": "17.0.2",
@@ -98,5 +98,5 @@
     "test": "yarn test:types && yarn jest --coverage",
     "test:types": "tsc --noEmit"
   },
-  "version": "0.0.1"
+  "version": "0.1.0"
 }
