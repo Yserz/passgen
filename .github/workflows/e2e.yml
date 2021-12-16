@@ -51,4 +51,4 @@ jobs:
         run: yarn --frozen-lockfile
 
       - name: Test
-        run: yarn playwright install-deps && yarn test:e2e
+        run: yarn playwright install && yarn playwright install-deps && yarn test:e2e
