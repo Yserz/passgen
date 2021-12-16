@@ -47,10 +47,8 @@ jobs:
       - name: Yarn cache
         uses: c-hive/gha-yarn-cache@v1
 
-      - uses: microsoft/playwright-github-action@v1
-
       - name: Install JS dependencies
         run: yarn --frozen-lockfile
 
       - name: Test
-        run: yarn test:e2e
+        run: yarn playwright install && yarn playwright install-deps && yarn test:e2e
