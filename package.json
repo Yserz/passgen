@@ -47,6 +47,7 @@
     "release": "lerna publish",
     "test": "node bin/runTests.js",
     "test:all": "lerna run test",
+    "test:e2e": "lerna run test:e2e",
     "prepare": "husky install"
   },
   "workspaces": {

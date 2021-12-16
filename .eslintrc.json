@@ -20,6 +20,7 @@
     "id-length": "off",
     "no-dupe-class-members": "off",
     "no-magic-numbers": "off",
-    "valid-jsdoc": "off"
+    "valid-jsdoc": "off",
+    "jest/no-done-callback": "off"
   }
 }
