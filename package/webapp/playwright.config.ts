@@ -10,7 +10,7 @@ const config: PlaywrightTestConfig = {
     screenshot: 'only-on-failure',
     video: 'on-first-retry',
   },
-  globalSetup: './e2e/runTestServer.js',
+  globalSetup: './e2e/runTestServer.ts',
   projects: [
     {
       name: 'chromium',
