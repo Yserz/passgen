@@ -16,7 +16,7 @@
     "regenerator-runtime": "0.13.9",
     "url-search-params-polyfill": "8.1.1",
     "uuid": "8.3.2",
-    "workbox-window": "6.5.0"
+    "workbox-window": "6.5.1"
   },
   "devDependencies": {
     "@babel/core": "7.17.5",
@@ -32,7 +32,7 @@
     "@types/jest": "27.4.1",
     "@types/react": "17.0.39",
     "@types/react-dom": "17.0.11",
-    "@types/react-redux": "7.1.22",
+    "@types/react-redux": "7.1.23",
     "@types/react-router": "5.1.18",
     "@types/react-router-dom": "5.3.3",
     "@types/redux-logger": "3.0.9",
@@ -66,7 +66,7 @@
     "tslint-plugin-prettier": "2.3.0",
     "tslint-react": "5.0.0",
     "tslint-react-hooks": "2.2.2",
-    "typescript": "4.5.5",
+    "typescript": "4.6.2",
     "webpack": "5.69.1",
     "webpack-dev-server": "4.7.4",
     "webpack-pwa-manifest": "4.3.0",
