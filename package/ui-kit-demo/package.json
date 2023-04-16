@@ -18,7 +18,7 @@
     "@types/webpack-env": "1.18.0",
     "babel-loader": "8.2.5",
     "babel-plugin-emotion": "11.0.0",
-    "html-webpack-plugin": "5.5.0",
+    "html-webpack-plugin": "5.5.1",
     "react-helmet": "6.1.0",
     "react-hot-loader": "4.13.1",
     "rimraf": "2.6.3",
