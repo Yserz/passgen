@@ -8,6 +8,7 @@ on:
 
 permissions:
   statuses: write
+  pull-requests: write
 
 jobs:
   test_build_deploy:
@@ -61,7 +62,7 @@ jobs:
         run: yarn test
 
       - name: Monitor coverage
-        if: github.event_name == 'pull_request' && !contains(github.event.pull_request.user.login, 'dependabot[bot]')
+        if: github.event_name == 'pull_request'
         uses: slavcodev/coverage-monitor-action@1.8.0
         with:
           github_token: ${{github.token}}
