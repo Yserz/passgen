@@ -61,7 +61,7 @@ jobs:
         run: yarn test
 
       - name: Monitor coverage
-        if: github.event_name == 'pull_request'
+        if: github.event_name == 'pull_request' && !contains(github.event.pull_request.user.login, 'dependabot[bot]')
         uses: slavcodev/coverage-monitor-action@1.8.0
         with:
           github_token: ${{github.token}}
