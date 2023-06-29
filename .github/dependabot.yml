@@ -7,7 +7,7 @@ updates:
       day: sunday
       time: '03:00'
       timezone: 'Europe/Berlin'
-    open-pull-requests-limit: 99
+    open-pull-requests-limit: 20
     versioning-strategy: increase
     ignore:
       - dependency-name: '@babel/core'
