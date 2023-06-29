@@ -6,6 +6,9 @@ on:
   pull_request:
     branches: [dev, master]
 
+permissions:
+  statuses: write
+
 jobs:
   test_build_deploy:
     runs-on: ubuntu-latest
@@ -59,10 +62,10 @@ jobs:
 
       - name: Monitor coverage
         if: github.event_name == 'pull_request'
-        uses: slavcodev/coverage-monitor-action@1.1.0
+        uses: slavcodev/coverage-monitor-action@1.8.0
         with:
           github_token: ${{github.token}}
-          clover_file: 'package/webapp/coverage/clover.xml'
+          coverage_path: 'package/webapp/coverage/clover.xml'
           threshold_alert: ${{env.TEST_COVERAGE_FAIL_THRESHOLD}}
           threshold_warning: ${{env.TEST_COVERAGE_WARNING_THRESHOLD}}
 
