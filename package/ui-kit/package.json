@@ -4,7 +4,7 @@
     "@types/color": "3.0.3",
     "color": "4.2.3",
     "emotion-normalize": "10.1.0",
-    "emotion-theming": "10.0.27"
+    "emotion-theming": "11.0.0"
   },
   "devDependencies": {
     "@babel/cli": "7.20.7",
