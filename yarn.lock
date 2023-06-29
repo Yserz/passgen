@@ -3177,10 +3177,12 @@
   resolved "https://registry.yarnpkg.com/@types/webpack-env/-/webpack-env-1.18.0.tgz#ed6ecaa8e5ed5dfe8b2b3d00181702c9925f13fb"
   integrity sha512-56/MAlX5WMsPVbOg7tAxnYvNYMMWr/QJiIp6BxVSW3JJXUVzzOn64qW8TzQyMSqSUFM2+PVI4aUHcHOzIz/1tg==
 
-"@types/workbox-window@4.3.4":
-  version "4.3.4"
-  resolved "https://registry.yarnpkg.com/@types/workbox-window/-/workbox-window-4.3.4.tgz#701e2c612cbdbe2e2960e7fc9743b7bc2110f01f"
-  integrity sha512-Zyac7JfCO1iWLeHxC/hwJ132nXta/x0hl1kERdvHSUU2qVgQ7slmF9C0xhzWADRu7XO4v9+po9xtGD4yonlzyA==
+"@types/workbox-window@5.0.0":
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/@types/workbox-window/-/workbox-window-5.0.0.tgz#b00292b543db9b1dd47b9483c204425812db047a"
+  integrity sha512-AAUnws51yqkLuCHRM6L2nclwkkaIT6i2r+KnoUjopAcfQdHz4F6YAzoxFZFGQZbgwNIBmCtEyBFGFCbf1pb+SQ==
+  dependencies:
+    workbox-window "*"
 
 "@types/ws@^8.5.1":
   version "8.5.3"
@@ -13672,7 +13674,7 @@ workbox-webpack-plugin@6.5.4:
     webpack-sources "^1.4.3"
     workbox-build "6.5.4"
 
-workbox-window@6.5.4:
+workbox-window@*, workbox-window@6.5.4:
   version "6.5.4"
   resolved "https://registry.yarnpkg.com/workbox-window/-/workbox-window-6.5.4.tgz#d991bc0a94dff3c2dbb6b84558cff155ca878e91"
   integrity sha512-HnLZJDwYBE+hpG25AQBO8RUWBJRaCsI9ksQJEp3aCOFCaG5kqaToAYXFRAHxzRluM2cQbGzdQF5rjKPWPA1fug==
